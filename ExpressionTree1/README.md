@@ -17,7 +17,7 @@ it directly in the code.
 
     public program()
     {
-        var loadedClass := new Symbol("mytest'MyDynamicallyLoadedClass");
+        var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
         
         loadedClass.doSomething()
     }
@@ -29,7 +29,7 @@ The result is:
     system'Exception#class.new[1]:exceptions.l(96)
     system'InvalidArgumentException#class.new[1]:exceptions.l(1)
     system'InvalidArgumentException#class.new[0]:exceptions.l(1)
-    mytest'program.#invoke[0]:test.l(13)
+    exprtree1'program.#invoke[0]:test.l(13)
     system'$private'entry.#invoke[0]:win32_app.l(37)
     system'#startUp:win32_app.l(55)
 
