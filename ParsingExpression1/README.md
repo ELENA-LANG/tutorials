@@ -298,5 +298,3 @@ So if we parse the following expression
 the output would be:
 
     ( ( ( 2 ) ( 2 ) * ) ( ( 3 ) ( 4 ) * ) - ) =-8.0
-
-The tutorial can be found at - https://github.com/ELENA-LANG/tutorials/tree/master/ParsingExpression1
