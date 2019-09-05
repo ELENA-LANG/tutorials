@@ -290,125 +290,12 @@ The buildTree change is quite simple:
         ^ node          
     }
 
-We may separate grammar rules and the script file. The final code is:
-
-grammar1.es
-
-    [[                                                     
-       #grammar text
-       #grammar cf
-    
-       #define start          ::= l0_expression $eof;
-       #define start          ::= l1_expression $eof;
-       #define start          ::= $eof;
-    
-       #define l0_expression  ::= <= ( => l1_expression l0_operation l0_operations* <= ) =>;
-       #define l0_operation   ::= "+" l1_expression <= + =>;
-       #define l0_operation   ::= "-" l1_expression <= - =>;
-       #define l0_operations  ::= <= , => l0_operation;
-
-       #define l1_expression  ::= number;
-       #define l1_expression  ::= <= ( => number l1_operation l1_operations* <= ) =>;
-       #define l1_operation   ::= "*" number <= * =>;
-       #define l1_operation   ::= "/" number <= / =>;
-       #define l1_operations  ::= <= , => l1_operation;
-
-       #define number         ::= <= ( $numeric ) =>;
-    ]]
-
-script1.txt
+So if we parse the following expression 
 
     2*2-3*4
 
-the main program:
 
-    import extensions;
-    import extensions'text;
-    import system'routines;
-    
-    class Node
-    {
-        prop string Text;
-        prop Node   Left;
-        prop Node   Right;
-        
-        constructor()
-        {
-        }    
-        constructor new(string text)
-        {
-            this Text := text;
-        }
-        constructor new(Node node)
-        {
-            this Left := node;
-        }
-        
-        append(Node node)
-        {
-            if (Left == nil)
-            {
-                Left := node
-            }
-            else 
-            {
-                Right := node
-            }
-        }
-        
-        eval()
-        {
-            if (Text==nil)
-            {
-                ^ Left.eval()
-            }
-            else
-            {
-                Text =>
-                    "+" { ^ Left.eval() + Right.eval() }
-                    "-" { ^ Left.eval() - Right.eval() }
-                    "*" { ^ Left.eval() * Right.eval() }
-                    "/" { ^ Left.eval() / Right.eval() }
-                    : { ^ Text.toReal() }
-            }        
-        }
-    }
-    
-    buildTree(TokenEnumerator reader)
-    {
-        Node node := new Node();
-        while (reader.next()) {
-            string token := reader.get();
-            if (token == "(") {
-                node.append(buildTree(reader));
-            }
-            else if (token == ")") {
-                ^ node;
-            }
-            else if (token == ",") {
-               node := Node.new(node);
-            }
-            else {
-                node.Text := token;
-            }
-        };
-        
-        ^ node          
-    }
-    
-    public program()
-    {
-        auto engine := new extensions'scripting'ScriptEngine();
-        engine.loadPath("grammar1.es");
-        
-        auto s := engine.loadPathAsText("script1.txt");
-        
-        Node root := buildTree(new TokenEnumerator(s, new ExpressionStatemachine()));
-        
-        console.printLine(s,"=",root.eval());
-    }
-
-The output is:
+the output would be:
 
     ( ( ( 2 ) ( 2 ) * ) ( ( 3 ) ( 4 ) * ) - ) =-8.0
 
