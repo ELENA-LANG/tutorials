@@ -143,7 +143,7 @@ It is the last item in the tape, so the interpretation stops and the object at t
 Creating expression tree
 ---
 
-We could simplify our code if we use Expression class. Expression call will automatically generate and evaluate an appropriate tape.
+We could simplify our code if we use Expression class. Expression will automatically generate and evaluate an appropriate tape.
 
     // <..>
     public program()
