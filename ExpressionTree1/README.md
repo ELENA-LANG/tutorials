@@ -140,3 +140,24 @@ returnd the result of the operation (similar to our first example)
 
 It is the last item in the tape, so the interpretation stops and the object at the stack top is returned.
 
+Creating expression tree
+---
+
+We could simplify our code if we use Expression class. Expression call will automatically generate and evaluate an appropriate tape.
+
+    // <..>
+    public program()
+    {
+        var loadedMessage := new Message("doSomething[0]");
+        
+        var c := Expression.MessageCall(
+                                loadedMessage, 
+                                Expression.Symbol("exprtree1'MyDynamicallyLoadedClass"));
+                                
+        c.eval()                                
+    }    
+
+The output is the same:
+
+    did something
+    
