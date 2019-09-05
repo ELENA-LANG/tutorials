@@ -1,6 +1,7 @@
 In this tutorial we will learn how to build code in run-time using system'dynamic'Expression class
 
-##Dynamic loading##
+Dynamic loading
+---
 
 ELENA Compiler can produce a stand-alone or VM client applications. For our purpose we should note that
 only VM client may dynamically link the required classes. For example let's declare a class without referring
