@@ -1,5 +1,5 @@
 In the previous tutorial - ParsingExpression1, we learned how to build a derivation tree using a custom-defined grammar. 
-ELENA Script Engine produced the text containing the result tree traversal:
+ELENA Script Engine produced the text containing the resulting tree traversal:
 
     ( ( ( 2 ) ( 2 ) * ) ( ( 3 ) ( 4 ) * ) - ) =-8.0
 
