@@ -99,3 +99,44 @@ When we dynamically load a class and a message (a zero in the squared brackets i
 And invoke the message:
 
         mixin loadedMessage(loadedClass).eval()
+
+Executing code in run-time
+---
+
+ELENA does not support run-time compilation, but it is possible to create a special mixin which will interpret its content 
+as some kind of program.
+
+    // <..>
+    public program()
+    {
+        var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
+        var loadedMessage := new Message("doSomething[0]");
+        
+        var t := ClosureTape.new(
+            new ConstantClosure(loadedClass),
+            new MessageClosure(loadedMessage));
+    
+        t()
+    }    
+
+The output is the same:
+
+    did something
+
+How does it work? ClosureTape invokes its member one after another. At the beginning the tape stack is empty:
+
+    <--
+    
+The first closure is invoked. ConstantClosure simply returns the object it was created with:
+
+    MyDynamicallyLoadedClass
+    <--
+
+The next one is MessageClosure. It sends its message to the object at the stack top, i.e to MyDynamicallyLoadedClass and
+returnd the result of the operation (similar to our first example)
+
+    MyDynamicallyLoadedClass
+    <--
+
+It is the last item in the tape, so the interpretation stops and the object at the stack top is returned.
+
