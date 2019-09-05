@@ -1,4 +1,5 @@
 import system'dynamic;
+import system'dynamic'expressions;
 
 public singleton MyDynamicallyLoadedClass
 {
@@ -30,9 +31,22 @@ dynamicEvaluating()
     t()
 }    
     
+treeEvaluating()
+{
+    var loadedMessage := new Message("doSomething[0]");
+    
+    var c := Expression.MessageCall(
+                            loadedMessage, 
+                            Expression.Symbol("exprtree1'MyDynamicallyLoadedClass"));
+                            
+    c.eval()                                
+}    
+    
 public program()
 {
     dynamicLoading();
     
-    dynamicEvaluating()
+    dynamicEvaluating();
+    
+    treeEvaluating()
 }
