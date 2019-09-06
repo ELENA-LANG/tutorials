@@ -16,3 +16,4 @@ ELENA is a general-purpose, object-oriented, polymorphic language with late bind
 
 * ParsingExpression1 - Using a script engine to parse the expression, Part 1
 * ParsingExpression2 - Using a script engine to parse the expression, Part 2
+* ExpressionTree1 - Building code at run-time in ELENA, Part 1
