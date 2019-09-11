@@ -133,3 +133,17 @@ Now let's replace direct values with a variables:
         Expression.Variable(targetVar)
     );
 
+So now we could declare the whole closure as an expression tree:
+
+    Expression.Closure(
+        targetVar,
+        nameVar,
+        Expression.CodeBlock(
+            Expression.Return(
+                Expression.GetDynamicProperty(
+                    Expression.Variable(nameVar),
+                    Expression.Variable(targetVar)
+                )
+            )
+        )         
+    );
