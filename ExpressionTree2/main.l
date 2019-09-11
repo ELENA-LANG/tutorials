@@ -3,6 +3,8 @@ import system'routines;
 import system'dynamic'expressions;
 import extensions;
 
+import system'dynamic;
+
 class Person
 {
     prop string FirstName;
@@ -104,9 +106,50 @@ get FirstName");
     }
 }
 
+treeEvaluating2()
+{
+    var r := new Person();
+    r.FirstName := "Alex";
+  
+    var c := new ClassReference("system'Message");
+  
+    var m := new Message("#constructor[1]");
+  
+    var e := Expression.DynamicMessageCall(
+                Expression.New(
+                    Expression.Constant(c),
+                    Expression.Constant("prop#FirstName[0]")),
+                Expression.Constant(r)
+             );
+    
+    var v := e.eval();
+    
+    
+//    var m := Expression.Method(
+//                "set",
+//                new ScopeVariable("r"),
+//                new ScopeVariable("prop"),
+//                new ScopeVariable("v"),
+//                Expression.CodeBlock(
+//                    Expression.Statement(
+//                        Expression.SetProperty(
+//                            new MessageName("")
+//                        )
+//                    )   
+//             ));
+}
+
+//scriptEvaluating()
+//{
+//}
+
 public program()
 {
-    dynamicLoading();
+    //dynamicLoading();
     
-    treeEvaluating()
+    //treeEvaluating();
+    
+    treeEvaluating2();
+    
+    //scriptEvaluating()
 }
