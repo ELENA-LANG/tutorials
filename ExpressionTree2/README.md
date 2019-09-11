@@ -114,3 +114,22 @@ The output will be:
     >set FirstName Alex
     >get FirstName
     Alex
+
+Could we get rid of closures altogether? Let's try. First of all, we may use dynamic property expression. For example our get operation could be changed:
+
+    Expression.GetDynamicProperty(
+                Expression.Constant(name),
+                Expression.Constant(r)
+
+The first argument should be a property name, the second one is a target.
+
+Now let's replace direct values with a variables:
+
+    var nameVar := new ScopeVariable("name");
+    var targetVar := new ScopeVariable("target");
+  
+    Expression.GetDynamicProperty(
+        Expression.Variable(nameVar),
+        Expression.Variable(targetVar)
+    );
+
