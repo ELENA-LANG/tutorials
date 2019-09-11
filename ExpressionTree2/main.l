@@ -111,18 +111,23 @@ treeEvaluating2()
     var r := new Person();
     r.FirstName := "Alex";
   
-    var c := new ClassReference("system'Message");
+    var nameVar := new ScopeVariable("name");
+    var targetVar := new ScopeVariable("target");
   
-    var m := new Message("#constructor[1]");
-  
-    var e := Expression.DynamicMessageCall(
-                Expression.New(
-                    Expression.Constant(c),
-                    Expression.Constant("prop#FirstName[0]")),
-                Expression.Constant(r)
-             );
+    var e2 := Expression.Method(
+                "get",
+                targetVar,
+                nameVar,
+                Expression.CodeBlock(
+                    Expression.GetDynamicProperty(
+                        Expression.Variable(nameVar),
+                        Expression.Variable(targetVar)
+                    )
+                )         
+              );
+    var f := e2.compiled();
     
-    var v := e.eval();
+    var v := f(r,"FirstName");
     
     
 //    var m := Expression.Method(
