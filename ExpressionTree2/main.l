@@ -114,20 +114,21 @@ treeEvaluating2()
     var nameVar := new ScopeVariable("name");
     var targetVar := new ScopeVariable("target");
   
-    var e2 := Expression.Method(
-                "get",
+    var e2 := Expression.Closure(
                 targetVar,
                 nameVar,
                 Expression.CodeBlock(
-                    Expression.GetDynamicProperty(
-                        Expression.Variable(nameVar),
-                        Expression.Variable(targetVar)
+                    Expression.Return(
+                        Expression.GetDynamicProperty(
+                            Expression.Variable(nameVar),
+                            Expression.Variable(targetVar)
+                        )
                     )
                 )         
               );
     var f := e2.compiled();
     
-    var v := f(r,"FirstName");
+    var v := f(r, "FirstName");
     
     
 //    var m := Expression.Method(
