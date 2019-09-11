@@ -109,40 +109,39 @@ get FirstName");
 treeEvaluating2()
 {
     var r := new Person();
-    r.FirstName := "Alex";
+    //r.FirstName := "Alex";
   
-    var nameVar := new ScopeVariable("name");
-    var targetVar := new ScopeVariable("target");
+    var e := Expression.Closure(
+                new ScopeVariable("target"),
+                new ScopeVariable("name"),
+                new ScopeVariable("value"),
+                Expression.CodeBlock(
+                    Expression.SetDynamicProperty(
+                        Expression.Variable(new ScopeVariable("name")),
+                        Expression.Variable(new ScopeVariable("target")),
+                        Expression.Variable(new ScopeVariable("value"))
+                    )
+                )         
+              );
+              
+    var f := e.compiled();
+    f(r, "FirstName", "Alex");                  
   
     var e2 := Expression.Closure(
-                targetVar,
-                nameVar,
+                new ScopeVariable("target"),
+                new ScopeVariable("name"),
                 Expression.CodeBlock(
                     Expression.Return(
                         Expression.GetDynamicProperty(
-                            Expression.Variable(nameVar),
-                            Expression.Variable(targetVar)
+                            Expression.Variable(new ScopeVariable("name")),
+                            Expression.Variable(new ScopeVariable("target"))
                         )
                     )
                 )         
               );
-    var f := e2.compiled();
+    var f2 := e2.compiled();
     
-    var v := f(r, "FirstName");
-    
-    
-//    var m := Expression.Method(
-//                "set",
-//                new ScopeVariable("r"),
-//                new ScopeVariable("prop"),
-//                new ScopeVariable("v"),
-//                Expression.CodeBlock(
-//                    Expression.Statement(
-//                        Expression.SetProperty(
-//                            new MessageName("")
-//                        )
-//                    )   
-//             ));
+    var v := f2(r, "FirstName");
 }
 
 //scriptEvaluating()
