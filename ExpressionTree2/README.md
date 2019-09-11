@@ -114,3 +114,9 @@ The output will be:
     >set FirstName Alex
     >get FirstName
     Alex
+
+Could we get rid of closures altogether? Let's try. First of all, we may use dynamic property expression. For example our get operation could be changed:
+
+    Expression.GetDynamicProperty(
+                Expression.Constant(name),
+                Expression.Constant(r)
