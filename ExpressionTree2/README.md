@@ -120,3 +120,5 @@ Could we get rid of closures altogether? Let's try. First of all, we may use dyn
     Expression.GetDynamicProperty(
                 Expression.Constant(name),
                 Expression.Constant(r)
+
+The first argument should be a property name, the second one is a target.
