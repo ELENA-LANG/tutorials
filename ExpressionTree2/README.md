@@ -1,7 +1,7 @@
 Let's write more complex  code. We will populate a record using command-line interface.
 
 
-Dynamic loading
+Executing code in run-time
 ---
 
 First we have to declare our record:
@@ -60,3 +60,57 @@ And finally let's parse the command and evaluate it:
             };
     }
 
+Creating expression tree
+---
+
+We may simplify the code if we will use Expression class.
+
+We could use *Expression.GetProperty(property_name, target_record)* to return the property value. The code will be straightforward:
+
+    getPropertyTree(object target, string name)
+    {
+        auto prop := new MessageName(name);
+        
+        ^ Expression.GetProperty(prop, 
+            Expression.Constant(target))
+    }
+
+Similar with set operation: *Expression.SetProperty(property_name, target_record, property_value)* 
+
+    setPropertyTree(object target, string name, value)
+    {
+        auto prop := new MessageName(name);
+        
+        ^ Expression.SetProperty(prop, 
+            Expression.Constant(target),
+            Expression.Constant(value))
+    }
+
+In both cases we will get an appropriate expression tree node. All we need is to evaluate it:
+
+    getPropertyTree(r, words[1]).eval()
+    
+or
+
+    getPropertyTree(r, words[1], words[2]).eval()
+
+Our main function should be modified accordingly
+
+        // splitting the entered command
+        var words := line.split();
+        // getting an appropiate operation 
+        var f := verbs[words[0]];
+        // evaluating it
+        (words.Length) =>
+            2 {
+                console.printLine(f(r, words[1]).eval());
+            }
+            3 {
+                f(r, words[1], words[2]).eval();
+            };
+
+The output will be:
+
+    >set FirstName Alex
+    >get FirstName
+    Alex
