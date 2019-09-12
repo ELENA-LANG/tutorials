@@ -163,8 +163,8 @@ So now we could declare the whole closure as an expression tree:
 
 So our modified code looks like this:
 
-// ...
-static nodes2 = new Map<string,object>()
+    // ...
+    static nodes2 = new Map<string,object>()
                     .setAt("set",Expression.Closure(
                                     new ScopeVariable("target"),
                                     new ScopeVariable("name"),
@@ -190,7 +190,7 @@ static nodes2 = new Map<string,object>()
                                     )         
                     ));
 
-// ...
+    // ...
 
         var words := line.split();
         var f := nodes2[words[0]].compiled();
@@ -202,4 +202,4 @@ static nodes2 = new Map<string,object>()
                 f(r, words[1], words[2]);
             };
 
-// ...
+    // ...
