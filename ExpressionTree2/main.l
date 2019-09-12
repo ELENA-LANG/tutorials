@@ -70,7 +70,7 @@ class Person
 
 // Select a solution
 
-const int Solution = 2; // put 1,2,3 or 4
+const int Solution = 3; // put 1,2,3 or 4
 
 // Solution 1
 
@@ -172,7 +172,7 @@ public program()
             proceed := closureSolution((word => nodes[word]))
         }
         3 {
-            proceed := closureSolution((word => nodes2[word]))
+            proceed := closureSolution((word => nodes2[word].compiled()))
         }
         /*4 {
         }*/;
