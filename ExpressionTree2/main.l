@@ -106,42 +106,53 @@ get FirstName");
     }
 }
 
+static nodes2 = new Map<string,object>()
+                    .setAt("set",Expression.Closure(
+                                    new ScopeVariable("target"),
+                                    new ScopeVariable("name"),
+                                    new ScopeVariable("value"),
+                                    Expression.CodeBlock(
+                                        Expression.SetDynamicProperty(
+                                            Expression.Variable(new ScopeVariable("name")),
+                                            Expression.Variable(new ScopeVariable("target")),
+                                            Expression.Variable(new ScopeVariable("value"))
+                                        )
+                                    )         
+                    ))
+                    .setAt("get",Expression.Closure(
+                                    new ScopeVariable("target"),
+                                    new ScopeVariable("name"),
+                                    Expression.CodeBlock(
+                                        Expression.Return(
+                                            Expression.GetDynamicProperty(
+                                                Expression.Variable(new ScopeVariable("name")),
+                                                Expression.Variable(new ScopeVariable("target"))
+                                            )
+                                        )
+                                    )         
+                    ));
+
 treeEvaluating2()
 {
     var r := new Person();
-    //r.FirstName := "Alex";
-  
-    var e := Expression.Closure(
-                new ScopeVariable("target"),
-                new ScopeVariable("name"),
-                new ScopeVariable("value"),
-                Expression.CodeBlock(
-                    Expression.SetDynamicProperty(
-                        Expression.Variable(new ScopeVariable("name")),
-                        Expression.Variable(new ScopeVariable("target")),
-                        Expression.Variable(new ScopeVariable("value"))
-                    )
-                )         
-              );
-              
-    var f := e.compiled();
-    f(r, "FirstName", "Alex");                  
-  
-    var e2 := Expression.Closure(
-                new ScopeVariable("target"),
-                new ScopeVariable("name"),
-                Expression.CodeBlock(
-                    Expression.Return(
-                        Expression.GetDynamicProperty(
-                            Expression.Variable(new ScopeVariable("name")),
-                            Expression.Variable(new ScopeVariable("target"))
-                        )
-                    )
-                )         
-              );
-    var f2 := e2.compiled();
     
-    var v := f2(r, "FirstName");
+    console.printLine(
+"Enter ""verb property value"" or press enter to stop
+set FirstName Alex
+get FirstName");
+
+    doUntil(string line, line == "", line := console.write(">").readLine())
+    {
+        var words := line.split();
+        var f := nodes2[words[0]].compiled();
+        (words.Length) =>
+            2 {
+                console.printLine(f(r, words[1]));
+            }
+            3 {
+                f(r, words[1], words[2]);
+            };
+    }
 }
 
 //scriptEvaluating()
