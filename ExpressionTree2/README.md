@@ -203,3 +203,50 @@ So our modified code looks like this:
             };
 
     // ...
+
+The next logical step would be to combine the closures into the single class, defined compeletly dynamically:
+
+    classTree = DynamicSingleton.new(
+        Expression.Method(
+            "get",
+            new ScopeVariable("target"),
+            new ScopeVariable("name"),
+            Expression.CodeBlock(
+                Expression.Return(
+                    Expression.GetDynamicProperty(
+                        Expression.Variable(new ScopeVariable("name")),
+                        Expression.Variable(new ScopeVariable("target"))
+                    )
+                )
+            )                     
+        ),
+        Expression.Method(
+            "set",
+            new ScopeVariable("target"),
+            new ScopeVariable("name"),
+            new ScopeVariable("value"),
+            Expression.CodeBlock(
+                Expression.SetDynamicProperty(
+                    Expression.Variable(new ScopeVariable("name")),
+                    Expression.Variable(new ScopeVariable("target")),
+                    Expression.Variable(new ScopeVariable("value"))
+                )
+            )         
+        )
+    );                                    
+
+The operation can be invoked similar to our first solution - using MessageName. We may use *extensions'invokeOp.invoke[...]* extension to make the call code nicer:
+
+    // ...
+    
+    auto prop := new MessageName(words[0]);
+    
+    (words.Length) =>
+        2 {            
+            console.printLine(prop.invoke(class, r, words[1]))
+        }
+        3 {
+            prop.invoke(class, r, words[1], words[2])
+        };
+        
+    // ...
