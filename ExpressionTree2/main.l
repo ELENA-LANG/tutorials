@@ -18,59 +18,9 @@ class Person
     }
 }
 
-//treeEvaluating()
-//{
-//    var r := new Person();
-//    
-//    console.printLine(
-//"Enter ""verb property value"" or press enter to stop
-//set FirstName Alex
-//get FirstName");
-//
-//    doUntil(string line, line == "", line := console.write(">").readLine())
-//    {
-//        var words := line.split();
-//        var f := nodes[words[0]];
-//        (words.Length) =>
-//            2 {
-//                console.printLine(f(r, words[1]).eval());
-//            }
-//            3 {
-//                f(r, words[1], words[2]).eval();
-//            };
-//    }
-//}
-//
-//treeEvaluating2()
-//{
-//    var r := new Person();
-//    
-//    console.printLine(
-//"Enter ""verb property value"" or press enter to stop
-//set FirstName Alex
-//get FirstName");
-//
-//    doUntil(string line, line == "", line := console.write(">").readLine())
-//    {
-//        var words := line.split();
-//        var f := nodes2[words[0]].compiled();
-//        (words.Length) =>
-//            2 {
-//                console.printLine(f(r, words[1]));
-//            }
-//            3 {
-//                f(r, words[1], words[2]);
-//            };
-//    }
-//}
-//
-////scriptEvaluating()
-////{
-////}
-
 // Select a solution
 
-const int Solution = 3; // put 1,2,3 or 4
+const int Solution = 4; // put 1,2,3,4 or 5
 
 // Solution 1
 
@@ -144,6 +94,37 @@ static nodes2 = new Map<string,object>()
                                         )
                                     )         
                     ));
+                    
+// Solution 4
+
+static classTree = DynamicSingleton.new(
+        Expression.Method(
+            "get",
+            new ScopeVariable("target"),
+            new ScopeVariable("name"),
+            Expression.CodeBlock(
+                Expression.Return(
+                    Expression.GetDynamicProperty(
+                        Expression.Variable(new ScopeVariable("name")),
+                        Expression.Variable(new ScopeVariable("target"))
+                    )
+                )
+            )                     
+        ),
+        Expression.Method(
+            "set",
+            new ScopeVariable("target"),
+            new ScopeVariable("name"),
+            new ScopeVariable("value"),
+            Expression.CodeBlock(
+                Expression.SetDynamicProperty(
+                    Expression.Variable(new ScopeVariable("name")),
+                    Expression.Variable(new ScopeVariable("target")),
+                    Expression.Variable(new ScopeVariable("value"))
+                )
+            )         
+        )
+    ).compiled();                                        
 
 // Common code
 
@@ -160,6 +141,19 @@ closureSolution(select) = (r,words)
         };        
 };
    
+classSolution(class) = (r,words)
+{
+    auto prop := new MessageName(words[0]);
+    
+    (words.Length) =>
+        2 {            
+            console.printLine(prop.invoke(class, r, words[1]))
+        }
+        3 {
+            prop.invoke(class, r, words[1], words[2])
+        };
+};
+   
 public program()
 {
     var proceed := nil;
@@ -174,7 +168,10 @@ public program()
         3 {
             proceed := closureSolution((word => nodes2[word].compiled()))
         }
-        /*4 {
+        4 {
+            proceed := classSolution(classTree)          
+        }
+        /*5{
         }*/;
     
     var r := new Person();
