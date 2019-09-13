@@ -204,7 +204,7 @@ So our modified code looks like this:
 
     // ...
 
-The next logical step would be to combine the closures into the single class, defined compeletly dynamically:
+The next logical step would be to combine the closures into the single class, defined completely dynamically:
 
     classTree = DynamicSingleton.new(
         Expression.Method(
@@ -250,3 +250,97 @@ The operation can be invoked similar to our first solution - using MessageName. 
         };
         
     // ...
+
+Using custom defined script
+---
+
+Now we are ready to generate this class based on the script.
+
+Our script will define two possible operations:
+
+    get(target,name)=target.name;
+    set(target,name,value):target.name = value; 
+    
+To parse this script successfully we have to describe the grammar. We will start with script engine configuration:
+
+    \[\[
+       &#35;grammar build
+       &#35;grammar cf
+
+We have to define the start rule:
+
+       #define start    ::= 
+    <=
+             system'dynamic'expressions'DynamicSingleton (
+    =>
+         method* $eof
+    <=
+             )
+    =>;
+    
+$eof indicates the end of the script. The script engine will combine all code inside <= => brackets inserting the terminal tokens and creates *system'dynamic'expressions'DynamicSingleton* class. Every method will be passed to the class constructor. As a result we will get an expression tree describing our defined operations: *get* and *set*
+
+       #define method   ::=
+    <=
+                 system'dynamic'expressions'MethodExpression (
+    =>    
+         name "(" parameter next_parameter* ")" body
+    <=
+                 )
+    =>;
+
+Every method is an instance of *system'dynamic'expressions'MethodExpression* class. The first parameter is the method name. Then we declare the method parameters and the last one is the method body:
+
+       #define body     ::= 
+    <=
+                    system'dynamic'expressions'CodeblockExpression (
+                        system'dynamic'expressions'ReturnExpression (
+    =>
+          "=" expr ";"
+    <=
+                        )
+                    )
+    =>;
+
+       #define body     ::= 
+    <=
+                    system'dynamic'expressions'CodeblockExpression (
+    =>
+          ":" expr ";"
+    <=
+                    )
+    =>;
+
+We will support the two types of body: the statement and the returning expression. 
+
+The expression could b either get or set property:
+
+       #define expr     ::= get_prop;
+       #define expr     ::= set_prop;
+    
+       #define get_prop ::=
+    <=
+                          system'dynamic'expressions'GetDynamicPropertyExpression (
+    =>
+                             variable "." variable
+    <=
+                          )
+    =>;
+    
+       #define set_prop ::=
+    <=
+                          system'dynamic'expressions'SetDynamicPropertyExpression (
+    =>
+                             variable "." variable "=" variable
+    <=
+                          )
+    =>;
+
+As a result our main code will be as simple as this one:
+
+    classTree
+        = new ScriptEngine().buildScriptFileFirst("exprtree2.es").compiled();
+
+Now we are in the position to expand our command-line interface using only the script (with appropriate grammar changes).
+
+In this tutorial we learned how to build expression trees both manually and grammar based.
