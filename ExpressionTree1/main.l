@@ -9,7 +9,7 @@ public singleton MyDynamicallyLoadedClass
     }
 }
 
-preloaded used = new object[] {MyDynamicallyLoadedClass, __subj doSomething};
+preloaded used = new object[]::(MyDynamicallyLoadedClass, __subj doSomething);
 
 dynamicLoading()
 {

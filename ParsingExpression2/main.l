@@ -1,7 +1,7 @@
 import extensions;
 import system'io;
 
-preloaded used = new object[] { Node };
+preloaded used = new object[]::( Node );
 
 public class Node
 {
@@ -47,8 +47,6 @@ public program()
 {
     auto engine := new extensions'scripting'ScriptEngine();
     engine.loadPath("grammar2.es");
-    
-    var line := console.write(">").readLine();
     
     doUntil(var line, line == "", line := console.write(">").readLine())
     {
