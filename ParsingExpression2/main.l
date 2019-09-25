@@ -48,10 +48,11 @@ public program()
     auto engine := new extensions'scripting'ScriptEngine();
     engine.loadPath("grammar2.es");
     
-    doUntil(var line, line == "", line := console.write(">").readLine())
+    var line;
+    until(line := console.write(">").readLine(), line == "")
     {
         var tape := engine.buildScript(line);
         
-        console.printLine("=",tape[0].eval());        
+        console.printLine("=",tape.eval());        
     }
 }

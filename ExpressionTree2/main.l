@@ -130,7 +130,7 @@ static classTree = DynamicSingleton.new(
 // Solution 5
 
 static classTreeFromScript
-    = new ScriptEngine().buildScriptFileFirst("exprtree2.es").compiled();
+    = new ScriptEngine().buildScriptFile("exprtree2.es").compiled();
 
 // Common code
 
@@ -188,7 +188,7 @@ public program()
 set FirstName Alex
 get FirstName");
 
-    doUntil(string line, line == "", line := console.write(">").readLine())
+    until(string line := console.write(">").readLine(), line == "")
     {
         proceed(r, line.split());        
     }
