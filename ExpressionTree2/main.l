@@ -21,7 +21,7 @@ class Person
 
 // Select a solution
 
-const int Solution = 4; // put 1,2,3,4 or 5
+const int Solution = 5; // put 1,2,3,4 or 5
 
 // Solution 1
 
@@ -153,10 +153,10 @@ classSolution(class) = (r,words)
     
     (words.Length) =>
         2 {            
-            console.printLine(prop.invoke(class, r, words[1]))
+            console.printLine(prop(class, r, words[1]))
         }
         3 {
-            prop.invoke(class, r, words[1], words[2])
+            prop(class, r, words[1], words[2])
         };
 };
    
