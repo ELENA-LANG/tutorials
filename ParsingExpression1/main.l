@@ -77,7 +77,7 @@ public program()
     auto engine := new extensions'scripting'ScriptEngine();
     engine.loadPath("grammar1.es");
     
-    doUntil(var line, line == "", line := console.write(">").readLine())
+    for(var line := console.write(">").readLine(), line != "")
     {
         string derived := engine.loadScriptAsText(line);
         

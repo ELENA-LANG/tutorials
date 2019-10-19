@@ -16,7 +16,7 @@ dynamicLoading()
     var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
     var loadedMessage := new Message("doSomething[0]");
     
-    mixin loadedMessage(loadedClass).eval()
+    loadedMessage(loadedClass)
 }
     
 dynamicEvaluating()

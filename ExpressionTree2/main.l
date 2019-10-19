@@ -21,7 +21,7 @@ class Person
 
 // Select a solution
 
-const int Solution = 5; // put 1,2,3,4 or 5
+const int Solution = 4; // put 1,2,3,4 or 5
 
 // Solution 1
 
@@ -29,14 +29,14 @@ getProperty(object target, string name)
 {
    auto prop := new MessageName(name);
    
-   ^ mixin prop(target).eval
+   ^ prop.getPropertyValue(target)
 }
 
 setProperty(object target, string name, value)
 {
     auto prop := new MessageName(name);
     
-    mixin prop(target).eval := value;
+    prop.setPropertyValue(target, value);
     
     ^ target
 }
