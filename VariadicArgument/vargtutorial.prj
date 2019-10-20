@@ -1,0 +1,16 @@
+<configuration>
+    <project>
+        <executable>vargtutorial.exe</executable>
+        <arguments></arguments>
+        <output></output>
+        <options></options>
+        <namespace>vargtutorial</namespace>
+        <template>console</template>
+        <debuginfo>-1</debuginfo>
+    </project>
+    <files>
+        <module>
+            <include>main.l</include>
+        </module>
+    </files>
+</configuration>
