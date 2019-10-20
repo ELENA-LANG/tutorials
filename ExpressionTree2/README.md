@@ -21,7 +21,7 @@ When let's define get operation:
     {
        auto prop := new MessageName(name);
        
-       ^ mixin prop(target).eval
+       ^ prop.getPropertyValue(target)
     }
     
 The first argument is a record to be read and the second one is a property name. The closure returns the property value.    
@@ -32,7 +32,7 @@ Set operation accepts three arguments : a target, a property name and a property
     {
         auto prop := new MessageName(name);
         
-        mixin prop(target).eval := value;
+        prop.setPropertyValue(target, value);
         
         ^ target
     }
@@ -235,7 +235,7 @@ The next logical step would be to combine the closures into the single class, de
         )
     );                                    
 
-The operation can be invoked similar to our first solution - using MessageName. We may use *extensions'invokeOp.invoke[...]* extension to make the call code nicer:
+The operation can be invoked similar to our first solution - using MessageName. We will once again use a message name value as a function to invoke it:
 
     // ...
     
@@ -243,10 +243,10 @@ The operation can be invoked similar to our first solution - using MessageName. 
     
     (words.Length) =>
         2 {            
-            console.printLine(prop.invoke(class, r, words[1]))
+            console.printLine(prop(class, r, words[1]))
         }
         3 {
-            prop.invoke(class, r, words[1], words[2])
+            prop(class, r, words[1], words[2])
         };
         
     // ...

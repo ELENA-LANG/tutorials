@@ -80,7 +80,7 @@ Similar, messages should be preloaded if we use stand-alone application.
         var loadedClass := new Symbol("mytest'MyDynamicallyLoadedClass");
         var loadedMessage := new Message("doSomething[0]");
         
-        mixin loadedMessage(loadedClass).eval()
+        loadedMessage(loadedClass)
     }
 
 The output is similar:
@@ -96,9 +96,9 @@ When we dynamically load a class and a message (a zero in the squared brackets i
         var loadedClass := new Symbol("mytest'MyDynamicallyLoadedClass");
         var loadedMessage := new Message("doSomething[0]");
 
-And invoke the message:
+And invoke the message - the message constant can be used as a function to invoke itself:
 
-        mixin loadedMessage(loadedClass).eval()
+        loadedMessage(loadedClass)
 
 Executing code in run-time
 ---
