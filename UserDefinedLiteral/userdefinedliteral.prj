@@ -1,0 +1,16 @@
+<configuration>
+    <project>
+        <executable>customliteraltutorial.exe</executable>
+        <arguments></arguments>
+        <output></output>
+        <options></options>
+        <namespace>customliteraltutorial</namespace>
+        <template>console</template>
+        <debuginfo>-1</debuginfo>
+    </project>
+    <files>
+        <module>
+            <include>main.l</include>
+        </module>
+    </files>
+</configuration>
