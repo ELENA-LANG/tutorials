@@ -17,17 +17,17 @@ We will start with declaring a structure containing an octal number. We will hav
         
     public struct OctalNumber
     {    
-            int value;
+        int value;
     
         int cast() = value;
     
         constructor(int n)
         {
                 value := n
-            }
+        }
     
-            internal constructor sum(OctalNumber o1, OctalNumber o2)
-            {
+        internal constructor sum(OctalNumber o1, OctalNumber o2)
+        {
             v    int n1 := o1;
             int n2 := o2;
     
