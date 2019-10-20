@@ -24,9 +24,7 @@ singleton SumOperation
         console.printLine();
 
         var list := args;
-        console.printLine(self.sumArgs(params args))        
-
-        //console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(inlinearg list))        
+        console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(inlinearg list))        
     }
 }
 
