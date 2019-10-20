@@ -13,9 +13,9 @@ For numbers we use a postfix to specify the number type and the number radix:
     
 It is possible to declare a user-defined postfix to simplify the code. Let's create an octal number literal (a radix 8).
     
-We will start with declaring a structure containing an octal number. We will have to override **Printable** property to display the numb    er with 8 radix:
+We will start with declaring a structure containing an octal number. We will have to override **Printable** property to display the number with 8 radix:
         
-    pu    blic struct OctalNumber
+    public struct OctalNumber
     {    
             int value;
     
@@ -51,28 +51,54 @@ We will start with declaring a structure containing an octal number. We will hav
         }
     
         internal constructor frac(OctalNumber o1, OctalNumber o2)
-    {
-        int n1 := o1;
-        int n2 := o2;
-
-        value := n1 / n2
-        }
+        {
+            int n1 := o1;
+            int n2 := o2;
     
+            value := n1 / n2
+        }
+        
         string Printable
             = stringConvertor.convert(value, 8);
     
-    v    OctalNumber add(OctalNumber n)
-        = OctalNumber.sum(self, n);
-
-    OctalNumber subtract(OctalNumber n)
-        = OctalNumber.diff(self, n);
-
-    OctalNumber multiply(OctalNumber n)
-        = OctalNumber.prod(self, n);
-
-    OctalNumber divide(OctalNumber n)
-        = OctalNumber.frac(self, n);
-}
-
+        OctalNumber add(OctalNumber n)
+            = OctalNumber.sum(self, n);
     
+        OctalNumber subtract(OctalNumber n)
+            = OctalNumber.diff(self, n);
     
+        OctalNumber multiply(OctalNumber n)
+            = OctalNumber.prod(self, n);
+    
+        OctalNumber divide(OctalNumber n)
+            = OctalNumber.frac(self, n);
+    }
+
+Now we have to declare a special conversion routine to box our octal literal:
+
+    cast o(string s)
+    {
+        value := intConvertor.convert(s, 8)
+    }
+
+And we will use this literal like this:
+
+
+    public program()
+    {
+        n := 24o;
+        m := 7o;
+        console.printLine(n,"+",m,"=",n + m);
+        console.printLine(n,"-",m,"=",n - m);
+        console.printLine(n,"*",m,"=",n * m);
+        console.printLine(n,"/",m,"=",n / m)
+    }
+
+The output will be:
+
+    24+7=33
+    24-7=15
+    24*7=214
+    24/7=2
+
+As you see it is quite simple to declare the user-defned literal. The key here is a special type of conversion routine accepting a string value
