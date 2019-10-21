@@ -1,6 +1,6 @@
 In this tutorial we will learn how to write the module initialization code.
 
-Sometimes it is required to make some preparation before the library can be used. In ELENA it is possible to declare an explicit initilization code. It is done by declaring a symbol with **preloaded** prefix (in most cases it should be private one). The symbol is automatically invoked before the program starts if the module containing this symbol was used.
+Sometimes it is required to make some preparation before the library can be used. In ELENA it is possible to declare an explicit initilization code. It is done by declaring a symbol with **preloaded** prefix (in most cases it should be private one). The symbol is automatically invoked before the program starts if the module containing this symbol is used.
 
     preloaded startUp = true.then(
     {
