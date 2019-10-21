@@ -9,7 +9,7 @@ Sometimes it is required to make some preparation before the library can be used
 
 In this code we declare a preloaded symbol named startUp. It executes the anonymous function. **then[1]** is an extension method which executes the given function. The extension target is not important, so we use a boolean literal.
 
-Let's check how our code works. We will declare a singlton with a method and executes it:
+Let's check how our code works. We will declare a singleton with a method and executes it:
 
     singleton MyClass1    
     {
