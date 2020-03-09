@@ -11,7 +11,7 @@ singleton SumOperation
         for (int i := 0, i < args.Length, i += 1)
         {
             if (i != 0)
-                :console.print(",");
+                console.print(",");
             
             console.print(args[i])
         }
