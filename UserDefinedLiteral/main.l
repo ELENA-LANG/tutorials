@@ -48,7 +48,7 @@ public struct OctalNumber
         value := n1 / n2
     }
 
-    string Printable
+    string toPrintable()
         = stringConvertor.convert(value, 8);
 
     OctalNumber add(OctalNumber n)
