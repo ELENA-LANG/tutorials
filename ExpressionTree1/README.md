@@ -161,4 +161,4 @@ The output is the same:
 
     did something
   
-In [the next articke](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree2) we will build more compilacated code.
+In [the next article](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree2) we will build more compilacated code.
