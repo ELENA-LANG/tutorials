@@ -1,5 +1,5 @@
-//import system'dynamic;
-//import system'dynamic'expressions;
+import system'dynamic;
+import system'dynamic'expressions;
 
 public singleton MyDynamicallyLoadedClass
 {
@@ -9,7 +9,7 @@ public singleton MyDynamicallyLoadedClass
     }
 }
 
-preloaded used = new object[]{MyDynamicallyLoadedClass/*, __subj doSomething*/};
+preloaded used = new object[]{MyDynamicallyLoadedClass, __subj doSomething};
 
 dynamicLoading()
 {
@@ -19,34 +19,34 @@ dynamicLoading()
     loadedMessage(loadedClass)
 }
     
-//dynamicEvaluating()
-//{
-//    var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
-//    var loadedMessage := new Message("doSomething[0]");
-//    
-//    var t := ClosureTape.new(
-//        new ConstantClosure(loadedClass),
-//        new MessageClosure(loadedMessage));
-//
-//    t()
-//}    
+dynamicEvaluating()
+{
+    var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
+    var loadedMessage := new Message("doSomething[1]");
     
-//treeEvaluating()
-//{
-//    var loadedMessage := new Message("doSomething[0]");
-//    
-//    var c := Expression.MessageCall(
-//                            loadedMessage, 
-//                            Expression.Symbol("exprtree1'MyDynamicallyLoadedClass"));
-//                            
-//    c.eval()                                
-//}    
+    var t := ClosureTape.load(
+        ConstantClosure.load(loadedClass),
+        MessageClosure.load(loadedMessage));
+
+    t()
+}    
+    
+treeEvaluating()
+{
+    var loadedMessage := new Message("doSomething[1]");
+    
+    var c := Expression.MessageCall(
+                            loadedMessage, 
+                            Expression.Symbol("exprtree1'MyDynamicallyLoadedClass"));
+                            
+    c.eval()                                
+}    
     
 public program()
 {
     dynamicLoading();
     
-//    dynamicEvaluating();
+    dynamicEvaluating();
     
-//    treeEvaluating()
+    treeEvaluating()
 }
