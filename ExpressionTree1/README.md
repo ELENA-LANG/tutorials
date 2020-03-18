@@ -78,7 +78,7 @@ Similar, messages should be preloaded if we use stand-alone application.
     public program()
     {
         var loadedClass := new Symbol("mytest'MyDynamicallyLoadedClass");
-        var loadedMessage := new Message("doSomething[0]");
+        var loadedMessage := new Message("doSomething[1]");
         
         loadedMessage(loadedClass)
     }
@@ -94,7 +94,7 @@ Let's review our code. in the following expression we declare a message name con
 When we dynamically load a class and a message (a zero in the squared brackets indicates a number of parameters):
 
         var loadedClass := new Symbol("mytest'MyDynamicallyLoadedClass");
-        var loadedMessage := new Message("doSomething[0]");
+        var loadedMessage := new Message("doSomething[1]");
 
 And invoke the message - the message constant can be used as a function to invoke itself:
 
@@ -110,7 +110,7 @@ as some kind of program.
     public program()
     {
         var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
-        var loadedMessage := new Message("doSomething[0]");
+        var loadedMessage := new Message("doSomething[1]");
         
         var t := ClosureTape.new(
             new ConstantClosure(loadedClass),
@@ -148,7 +148,7 @@ We could simplify our code if we use Expression class. Expression will automatic
     // <..>
     public program()
     {
-        var loadedMessage := new Message("doSomething[0]");
+        var loadedMessage := new Message("doSomething[1]");
         
         var c := Expression.MessageCall(
                                 loadedMessage, 
@@ -160,4 +160,5 @@ We could simplify our code if we use Expression class. Expression will automatic
 The output is the same:
 
     did something
-    
+  
+In [the next article](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree2) we will build more compilacated code.
