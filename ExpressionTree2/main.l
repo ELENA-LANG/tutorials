@@ -2,7 +2,7 @@ import system'collections;
 import system'routines;
 import system'dynamic'expressions;
 import extensions;
-//import extensions'scripting;
+import extensions'scripting;
 
 class Person
 {
@@ -21,7 +21,7 @@ class Person
 
 // Select a solution
 
-const int Solution = 4; // put 1,2,3,4 or 5
+const int Solution = 5; // put 1,2,3,4 or 5
 
 // Solution 1
 
@@ -127,10 +127,10 @@ static classTree = DynamicSingleton.new(
         )
     ).compiled();                                        
 
-//// Solution 5
-//
-//static classTreeFromScript
-//    = new ScriptEngine().buildScriptFile("exprtree2.es").compiled();
+// Solution 5
+
+static classTreeFromScript
+    = new ScriptEngine().buildScriptFile("exprtree2.es").compiled();
 
 // Common code
 
