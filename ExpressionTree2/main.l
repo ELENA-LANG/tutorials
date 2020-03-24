@@ -178,9 +178,9 @@ public program()
         }
         4 {
             proceed := classSolution(classTree)
-//        }
-//        5{
-//            proceed := classSolution(classTreeFromScript)            
+        }
+        5{
+            proceed := classSolution(classTreeFromScript)            
         };
     
     var r := new Person();
