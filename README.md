@@ -12,9 +12,15 @@ ELENA is a general-purpose, object-oriented, polymorphic language with late bind
   - Number of samples
   - Script Engine
 
-# List of tutorials in ELENA:
+# List of ELENA tutorials:
 
-* ParsingExpression1 - Using a script engine to parse the expression, Part 1
-* ParsingExpression2 - Using a script engine to parse the expression, Part 2
-* ExpressionTree1 - Building code at run-time in ELENA, Part 1
-* ExpressionTree2 - Building code at run-time in ELENA, Part 2
+Tutorial | Description | Level
+-------- | ----------- | ----------
+[DuckTyping](https://github.com/ELENA-LANG/tutorials/blob/master/DuckTyping/README.md) | Duck typing in ELENA | Beginner 
+[VariadicArgument](https://github.com/ELENA-LANG/tutorials/blob/master/VariadicArgument/README.md) | Using variadic functions / methods in ELENA | Beginner 
+[UserDefinedLiteral](https://github.com/ELENA-LANG/tutorials/tree/master/UserDefinedLiteral) | Declaring a user-defined literal constants | Beginner
+[ModuleInitializer](https://github.com/ELENA-LANG/tutorials/tree/master/ModuleInitializer) | Declaring a module initialization code | Beginner
+[ExpressionTree1](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree1) | Building code at run-time in ELENA, Part 1 | Advanced
+[ExpressionTree2](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree2) | Building code at run-time in ELENA, Part 2 | Advanced
+[ParsingExpression1](https://github.com/ELENA-LANG/tutorials/tree/master/ParsingExpression1) | Using ELENA Script Engine to parse an arithmetic expression, Part 1 | Advanced
+[ParsingExpression2](https://github.com/ELENA-LANG/tutorials/tree/master/ParsingExpression2) | Using ELENA Script Engine to parse an arithmetic expression, Part 2 | Advanced
