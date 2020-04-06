@@ -101,7 +101,7 @@ the output is:
     Duck flying
     Airplane  flying
 
-And of course we may simply check if the object supports the method (though the approach will not work for mixins). In this case have to use the message constant - *mssgconst fly[0]* (where 0 is the number of parameters)
+And of course we may simply check if the object supports the method (though the approach will not work for mixins). In this case have to use the message literal - *mssgconst fly[1]* (where 1 is the number of arguments, including the message target)
 
     // <...>
     
