@@ -12,6 +12,8 @@ ELENA is a general-purpose, object-oriented, polymorphic language with late bind
   - Number of samples
   - Script Engine
 
+Learn more at [ELENA Wiki](https://github.com/ELENA-LANG/elena-lang/wiki/ELENA-Programming-Manual)
+
 # List of ELENA tutorials:
 
 Tutorial | Description | Level
