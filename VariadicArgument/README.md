@@ -38,7 +38,7 @@ Nothing special should be done to call a variadic function:
 
 You may mix variadic and normal functions with the same name.
 
-Some times you have to pass your argument into another function. A variadic argument will be automatically boxed into a normal array. But sometimes you would like to pass it into another varidic function. In this case the argument should be preceded with the same prefix **params**:
+Sometimes you have to pass your argument into another function. A variadic argument will be automatically boxed into a normal array. But sometimes you would like to pass it into another varidic function. In this case the argument should be preceded with the same prefix **params**:
 
     printAndSum(string name, params object[] args)
     {
