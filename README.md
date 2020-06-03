@@ -20,7 +20,7 @@ Tutorial | Description | Level
 -------- | ----------- | ----------
 [DuckTyping](https://github.com/ELENA-LANG/tutorials/blob/master/DuckTyping/README.md) | Duck typing in ELENA | Beginner 
 [VariadicArgument](https://github.com/ELENA-LANG/tutorials/blob/master/VariadicArgument/README.md) | Using variadic functions / methods in ELENA | Beginner 
-[JsonToDTO](https://github.com/ELENA-LANG/tutorials/blob/master/jsontodto/README.md) | Converting DTO to JSON string and back | Beginner 
+[JsonToDTO](https://github.com/ELENA-LANG/tutorials/blob/master/jsontodto/readme.md) | Converting DTO to JSON string and back | Beginner 
 [ModuleInitializer](https://github.com/ELENA-LANG/tutorials/tree/master/ModuleInitializer) | Declaring a module initialization code | Beginner
 [UserDefinedLiteral](https://github.com/ELENA-LANG/tutorials/tree/master/UserDefinedLiteral) | Declaring a user-defined literal constants | Beginner
 [ExpressionTree1](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree1) | Building code at run-time in ELENA, Part 1 | Advanced
