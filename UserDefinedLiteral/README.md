@@ -13,7 +13,7 @@ For numbers we use a postfix to specify the number type and the number radix:
     
 It is possible to declare a user-defined postfix to simplify the code. Let's create an octal number literal (a radix 8).
     
-We will start with declaring a structure containing an octal number. We will have to override **Printable** property to display the number with 8 radix:
+We will start with declaring a structure containing an octal number. We will have to override **toPrintable[1]** method to display the number with 8 radix:
         
     public struct OctalNumber
     {    
