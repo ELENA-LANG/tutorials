@@ -4,7 +4,7 @@ In this tutorial we will learn how to declare and use variadic arguments.
 
 Variadic arguments are used to pass arbitrary number of argument to the functions (so called variadic functions). In ELENA they are actively used in many methods. For example **printLine[]** extension method is a variadic one. 
 
-A function / method may have only one variadic argument and it should be the last one:
+A function / method can have only one variadic argument and it should be the last one:
 
     singleton SumOperation
     {
@@ -38,7 +38,7 @@ Nothing special should be done to call a variadic function:
 
 You may mix variadic and normal functions with the same name.
 
-Some times you have to pass your argument into another function. A variadic argument will be automatically boxed into a normal array. But sometimes you would like to pass it into another varidic function. In this case the argument should be preceded with the same prefix **params**:
+Sometimes you have to pass your argument into another function. A variadic argument will be automatically boxed into a normal array. But sometimes you would like to pass it into another varidic function. In this case the argument should be preceded with the same prefix **params**:
 
     printAndSum(string name, params object[] args)
     {

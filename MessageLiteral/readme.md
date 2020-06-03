@@ -152,19 +152,19 @@ Message literals can be used to invoke an extension method as well. Let's write 
 
 We will declare an extension method **compose** to combine two functions. We will use an extension message literal referring mathOp extension : mssgconst sin<mathOp>[1], mssgconst cos<mathOp>[1], mssgconst arcsin<mathOp>[1] and mssgconst arccos<mathOp>[1]. The extension class should be declared inside template brackets.
 
-import system'routines;
-import system'math;
-import extensions'routines;
-import extensions'math;
- 
-extension op
-{
-    compose(f,g)
-        = f(g(self));
-}
- 
-public program()
-{
+    import system'routines;
+    import system'math;
+    import extensions'routines;
+    import extensions'math;
+     
+    extension op
+    {
+        compose(f,g)
+            = f(g(self));
+    }
+     
+    public program()
+    {
        var fs := new object[]{ 
           mssgconst sin<mathOp>[1], 
           mssgconst cos<mathOp>[1] };
