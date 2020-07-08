@@ -4,8 +4,8 @@ public FibonacciEnumerator
 {
     yieldable next()
     {
-        long n_2 := 1; 
-        long n_1 := 1;
+        long n_2 := 1l; 
+        long n_1 := 1l;
 
         yield:n_2;             
         yield:n_1;
