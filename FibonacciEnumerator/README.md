@@ -11,7 +11,7 @@ If we want to start the iteration once again we have to create a new instance of
 And it stops when we simply stop calling it again.
 
 In ELENA any method can be made yieldable. The class may have several yieldable methods which can
-be independant from each other. 
+be independent from each other. 
 
 Let's do it. The method should start with **yieldable** attribute:
 
@@ -40,7 +40,7 @@ return statement:
         {
             long n := n_2 + n_1;
 
-            // the last yield return statement will be called inifitely
+            // the last yield return statement will be called indefinitely
             yield:n;
 
             n_2 := n_1;
