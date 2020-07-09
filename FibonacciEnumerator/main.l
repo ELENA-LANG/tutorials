@@ -1,6 +1,6 @@
 import extensions;
 
-public FibonacciEnumerator
+public FibonacciGenerator
 {
     yieldable next()
     {
@@ -24,7 +24,7 @@ public FibonacciEnumerator
 
 public program()
 {
-    auto e := new FibonacciEnumerator();
+    auto e := new FibonacciGenerator();
     
     int n := console.print("Enter the length of fibonacci series:").readLine().toInt();
     for(int i := 0, i < n, i += 1) {
