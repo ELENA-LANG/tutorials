@@ -2,7 +2,7 @@ import extensions;
 
 public FibonacciGenerator
 {
-    yieldable next()
+    yieldable long next()
     {
         long n_2 := 1l; 
         long n_1 := 1l;
