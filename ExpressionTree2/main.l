@@ -137,7 +137,6 @@ static classTreeFromScript
 closureSolution(select) = (r,words)
 {
     var f := select(words[0]);
-    
     (words.Length) =>
         2 {
             console.printLine(f(r, words[1]));
