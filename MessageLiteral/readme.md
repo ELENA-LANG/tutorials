@@ -146,7 +146,7 @@ It is possible to save incoming messages using a generic handler and __received 
 
 And the result is:
 
-   foo[1],bar[1]
+    foo[1],bar[1]
 
 Message literals can be used to invoke an extension method as well. Let's write a code to implement a Rosetta code sample - http://rosettacode.org/wiki/First-class_functions.
 
