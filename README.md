@@ -24,6 +24,7 @@ Tutorial | Description | Level
 [ModuleInitializer](https://github.com/ELENA-LANG/tutorials/tree/master/ModuleInitializer) | Declaring a module initialization code | Beginner
 [UserDefinedLiteral](https://github.com/ELENA-LANG/tutorials/tree/master/UserDefinedLiteral) | Declaring a user-defined literal constants | Beginner
 [FibonacciEnumerator](https://github.com/ELENA-LANG/tutorials/tree/master/FibonacciEnumerator) | Using yieldable method to generate infinite iteratation | Beginner
+[MessageLiteral](https://github.com/ELENA-LANG/tutorials/tree/master/MessageLiteral) | Using message literals | Beginner
 [ExpressionTree1](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree1) | Building code at run-time in ELENA, Part 1 | Advanced
 [ExpressionTree2](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree2) | Building code at run-time in ELENA, Part 2 | Advanced
 [ParsingExpression1](https://github.com/ELENA-LANG/tutorials/tree/master/ParsingExpression1) | Using ELENA Script Engine to parse an arithmetic expression, Part 1 | Advanced

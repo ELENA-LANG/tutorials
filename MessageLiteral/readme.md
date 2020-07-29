@@ -1,6 +1,6 @@
 In many dynamic programming languages to call the object method we have to send an appropriate message to it. So we could write a general function which sends the message to the given argument
 
-    A
+    class A
     {
         foo()
         {
@@ -33,7 +33,7 @@ When the number of arguments can vary we can use a message name literal:
 
     import extensions;
  
-    A
+    class A
     {
         foo()
         {
@@ -64,7 +64,7 @@ In general case the number of arguments can be known only in run-time. So we cou
 
     import extensions;
  
-    A
+    class A
     {
         foo()
         {
@@ -96,7 +96,7 @@ In general case the number of arguments can be known only in run-time. So we cou
 
 Being a first class function a message literal can be loaded dynamically:
 
-    A
+    class A
     {
         callMe()
         {
@@ -120,7 +120,7 @@ And the output is:
 
 It is possible to save incoming messages using a generic handler and __received built-in variable. Generic handle will accept all unhandled messages when the message signature is matched. __received variable contains the incoming message.
 
-    B
+    class B
     {
         incomeMessages := new system'collections'Queue();
         
@@ -146,7 +146,7 @@ It is possible to save incoming messages using a generic handler and __received 
 
 And the result is:
 
-   foo[1],bar[1]
+    foo[1],bar[1]
 
 Message literals can be used to invoke an extension method as well. Let's write a code to implement a Rosetta code sample - http://rosettacode.org/wiki/First-class_functions.
 
