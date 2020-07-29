@@ -125,12 +125,12 @@ static classTree = DynamicSingleton.new(
                 )
             )         
         )
-    ).compiled();                                        
+    ).compiled(IdleExpressionScope);                                        
 
 // Solution 5
 
 static classTreeFromScript
-    = new ScriptEngine().buildScriptFile("exprtree2.es").compiled();
+    = new ScriptEngine().buildScriptFile("exprtree2.es").compiled(IdleExpressionScope);
 
 // Common code
 
@@ -173,7 +173,7 @@ public program()
             proceed := closureSolution((word => nodes[word]))
         }
         3 {
-            proceed := closureSolution((word => nodes2[word].compiled()))
+            proceed := closureSolution((word => nodes2[word].compiled(IdleExpressionScope)))
         }
         4 {
             proceed := classSolution(classTree)
