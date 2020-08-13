@@ -112,9 +112,9 @@ as some kind of program.
         var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
         var loadedMessage := new Message("doSomething[1]");
         
-        var t := ClosureTape.new(
-            new ConstantClosure(loadedClass),
-            new MessageClosure(loadedMessage));
+        var t := DynamicTape.new(
+            new ConstantFunction(loadedClass),
+            new MessageFunction(loadedMessage));
     
         t()
     }    
@@ -123,16 +123,16 @@ The output is the same:
 
     did something
 
-How does it work? ClosureTape invokes its member one after another. At the beginning the tape stack is empty:
+How does it work? DynamicTape invokes its member one after another. At the beginning the tape stack is empty:
 
     <--
     
-The first closure is invoked. ConstantClosure simply returns the object it was created with:
+The first function is invoked. ConstantFunction simply returns the object it was created with:
 
     MyDynamicallyLoadedClass
     <--
 
-The next one is MessageClosure. It sends its message to the object at the stack top, i.e to MyDynamicallyLoadedClass and
+The next one is MessageFunction. It sends its message to the object at the stack top, i.e to MyDynamicallyLoadedClass and
 returnd the result of the operation (similar to our first example)
 
     MyDynamicallyLoadedClass

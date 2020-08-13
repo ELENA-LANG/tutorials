@@ -24,9 +24,9 @@ dynamicEvaluating()
     var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
     var loadedMessage := new Message("doSomething[1]");
     
-    var t := ClosureTape.load(
-        ConstantClosure.load(loadedClass),
-        MessageClosure.load(loadedMessage));
+    var t := DynamicTape.load(
+        ConstantFunction.load(loadedClass),
+        MessageFunction.load(loadedMessage));
 
     t()
 }    
