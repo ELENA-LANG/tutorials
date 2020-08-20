@@ -61,7 +61,7 @@ buildTree(TokenEnumerator reader)
         else if (token == ")") {
             ^ node;
         }
-        else if (token == ",") {
+        else if (token == ";") {
            node := Node.new(node);
         }
         else {

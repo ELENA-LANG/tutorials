@@ -255,7 +255,7 @@ As a result we will produce the following text:
 
     ( ( 1 ) ( 2 ) - , ( 3 ) - )=-4
 
-Instead of using nested brackets (which cannot be produced using left most recursion grammar) we introduce a special symbol - comma (*,*) , and when a comma is encountered, we insert a new tree node,  
+Instead of using nested brackets (which cannot be produced using left most recursion grammar) we introduce a special symbol - comma (*;*) , and when a comma is encountered, we insert a new tree node,  
 
 The buildTree change is quite simple:
     
@@ -279,7 +279,7 @@ The buildTree change is quite simple:
             else if (token == ")") {
                 ^ node;
             }
-            else if (token == ",") {
+            else if (token == ";") {
                node := Node.new(node);
             }
             else {

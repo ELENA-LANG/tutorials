@@ -70,7 +70,7 @@ we will add a new parser. Let's add the following block to the grammar file:
        #define operation     ::= node "/" <= "/" =>;
        #define leaf          ::= <= "$numeric" =>;
     
-       #define operations    ::= <= , => "," operation;
+       #define operations    ::= <= ; => ";" operation;
     
        #grammar cf
     
