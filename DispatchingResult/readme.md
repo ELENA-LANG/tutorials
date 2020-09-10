@@ -4,6 +4,8 @@ Multi-methods are used to dispatch a function based on the message argument list
 it would be good to dispatch it by expected result as well. In this case we will have to declare a default
 method implementation which will be called if we use weak method calls.
 
+The main drawback is that it can be used only with strong-typed variables.
+
 In the following code we dispatch the property Value by providing the expected returning value:
 
     import extensions;
