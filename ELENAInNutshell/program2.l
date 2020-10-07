@@ -4,14 +4,15 @@ startUp()
 {
    try
    {
-      console.writeLine("Starting a program");
-
       program()
    }
    catch(Exception ex)
    {
       console.writeLine(ex.toPrintable())
-   }
+   };
+
+   // wait for any key
+   console.readChar()
 }
 
 public program()
