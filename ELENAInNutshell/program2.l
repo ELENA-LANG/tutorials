@@ -4,7 +4,7 @@ startUp()
 {
    try
    {
-      program()
+      forward program()
    }
    catch(Exception ex)
    {
@@ -18,4 +18,9 @@ startUp()
 public program()
 {
    console.writeLine("Here my first program in ELENA!")
+} 
+
+public alt_program()
+{
+   console.writeLine("Here my second program in ELENA!")
 } 
