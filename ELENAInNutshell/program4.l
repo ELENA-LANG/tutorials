@@ -1,24 +1,34 @@
-import extensions;
-
-A
-{
-    bar()
+    import extensions;
+    
+    A
     {
-        console.printLine("bar")
+        react()
+        {
+            console.printLine("bar")
+        }
     }
-}
 
-singleton B
-{
-    foo(o)
+    B
     {
-        console.print(o,":");
-        o.bar()
+        react()
+        {
+            console.printLine("foo")
+        }
+    }        
+        
+    singleton C
+    {
+        proceed(o)
+        {     
+            console.print(o,":");
+            o.react()
+        }
     }
-}
-
-public program() 
-{
-    var a := new A();
-    B.foo(a)
-}
+    
+    public program() 
+    {
+        var a := new A();
+        var b := new B();
+        C.proceed(a);
+        C.proceed(b);
+    }
