@@ -16,6 +16,9 @@ class MyString
        this string := s
     }
 
+    string toPrintable()
+       => string;
+
     add(MyString s)
         = this string + s;
 
@@ -32,7 +35,7 @@ class MyPoint
     prop y;
 
     add(MyPoint p)
-       = new MyPoint { this x := x + p.x; this y := y + p.y; };
+       = new MyPoint().set x(x + p.x).set y(y + p.y);
 
     string toPrintable()
        = "x:" + x.toPrintable() + "; y:" + y.toPrintable();
