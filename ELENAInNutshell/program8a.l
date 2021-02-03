@@ -1,7 +1,9 @@
+import extensions;
+
 singleton Doubler
 {
     double()
-      = self + self;
+      = __target + __target;
 }
 
 // NOTE : MyString should include string and doubler, it is not possible yet
