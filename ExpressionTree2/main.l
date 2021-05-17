@@ -21,7 +21,7 @@ class Person
 
 // Select a solution
 
-const int Solution = 5; // put 1,2,3,4 or 5
+const int Solution = 1; // put 1,2,3,4 or 5
 
 // Solution 1
 
