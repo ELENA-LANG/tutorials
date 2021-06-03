@@ -1,0 +1,16 @@
+<configuration>
+    <project>
+        <executable></executable>
+        <arguments></arguments>
+        <output></output>
+        <options></options>
+        <namespace>mylib</namespace>
+        <template>lib</template>
+        <debuginfo>-1</debuginfo>
+    </project>
+    <files>
+        <module>
+            <include>myclass.l</include>
+        </module>
+    </files>
+</configuration>

@@ -72,28 +72,28 @@ static nodes = new Map<string,object>()
 
 static nodes2 = new Map<string,object>()
                     .setAt("set",Expression.Closure(
-                                    new ScopeVariable("target"),
-                                    new ScopeVariable("name"),
-                                    new ScopeVariable("value"),
                                     Expression.CodeBlock(
                                         Expression.SetDynamicProperty(
-                                            Expression.Variable(new ScopeVariable("name")),
-                                            Expression.Variable(new ScopeVariable("target")),
-                                            Expression.Variable(new ScopeVariable("value"))
+                                            Expression.Variable("name"),
+                                            Expression.Variable("target"),
+                                            Expression.Variable("value")
                                         )
-                                    )         
+                                    ),
+                                    ScopeIdentifier.Variable("target"),
+                                    ScopeIdentifier.Variable("name"),
+                                    ScopeIdentifier.Variable("value")
                     ))
                     .setAt("get",Expression.Closure(
-                                    new ScopeVariable("target"),
-                                    new ScopeVariable("name"),
                                     Expression.CodeBlock(
                                         Expression.Return(
                                             Expression.GetDynamicProperty(
-                                                Expression.Variable(new ScopeVariable("name")),
-                                                Expression.Variable(new ScopeVariable("target"))
+                                                Expression.Variable("name"),
+                                                Expression.Variable("target")
                                             )
                                         )
-                                    )         
+                                    ),
+                                    ScopeIdentifier.Variable("target"),
+                                    ScopeIdentifier.Variable("name")                                             
                     ));
                     
 // Solution 4
@@ -101,36 +101,36 @@ static nodes2 = new Map<string,object>()
 static classTree = DynamicSingleton.new(
         Expression.Method(
             "get",
-            new ScopeVariable("target"),
-            new ScopeVariable("name"),
             Expression.CodeBlock(
                 Expression.Return(
                     Expression.GetDynamicProperty(
-                        Expression.Variable(new ScopeVariable("name")),
-                        Expression.Variable(new ScopeVariable("target"))
+                        Expression.Variable("name"),
+                        Expression.Variable("target")
                     )
                 )
-            )                     
+            ),                     
+            ScopeIdentifier.Variable("target"),
+            ScopeIdentifier.Variable("name")
         ),
         Expression.Method(
             "set",
-            new ScopeVariable("target"),
-            new ScopeVariable("name"),
-            new ScopeVariable("value"),
             Expression.CodeBlock(
                 Expression.SetDynamicProperty(
-                    Expression.Variable(new ScopeVariable("name")),
-                    Expression.Variable(new ScopeVariable("target")),
-                    Expression.Variable(new ScopeVariable("value"))
+                    Expression.Variable("name"),
+                    Expression.Variable("target"),
+                    Expression.Variable("value")
                 )
-            )         
+            ),
+            ScopeIdentifier.Variable("target"),
+            ScopeIdentifier.Variable("name"),
+            ScopeIdentifier.Variable("value")                     
         )
-    ).compiled(IdleExpressionScope);                                        
+    ).compile();
 
 // Solution 5
 
 static classTreeFromScript
-    = new ScriptEngine().buildScriptFile("exprtree2.es").compiled(IdleExpressionScope);
+    = new ScriptEngine().buildScriptFile("exprtree2.es").compile(new RootExpressionScope());
 
 // Common code
 
@@ -173,7 +173,7 @@ public program()
             proceed := closureSolution((word => nodes[word]))
         }
         3 {
-            proceed := closureSolution((word => nodes2[word].compiled(IdleExpressionScope)))
+            proceed := closureSolution((word => nodes2[word].compile(new RootExpressionScope())))
         }
         4 {
             proceed := classSolution(classTree)

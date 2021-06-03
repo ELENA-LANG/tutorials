@@ -1,0 +1,19 @@
+<configuration>
+    <project>
+        <executable>mytest.exe</executable>
+        <arguments></arguments>
+        <output></output>
+        <options></options>
+        <namespace>mytest</namespace>
+        <template>console</template>
+        <debuginfo>-1</debuginfo>
+    </project>
+    <references>
+       <reference key="mylib">..\mymodule</reference>
+    </references>
+    <files>
+        <module>
+            <include>main.l</include>
+        </module>
+    </files>
+</configuration>
