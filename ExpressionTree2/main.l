@@ -4,6 +4,8 @@ import system'dynamic'expressions;
 import extensions;
 import extensions'scripting;
 
+preloaded used = new object[]{subj get, subj set};
+
 class Person
 {
     prop string FirstName;
@@ -21,7 +23,7 @@ class Person
 
 // Select a solution
 
-const int Solution = 1; // put 1,2,3,4 or 5
+const int Solution = 5; // put 1,2,3,4 or 5
 
 // Solution 1
 
@@ -100,7 +102,7 @@ static nodes2 = new Map<string,object>()
 
 static classTree = DynamicSingleton.new(
         Expression.Method(
-            "get",
+            "get",            
             Expression.CodeBlock(
                 Expression.Return(
                     Expression.GetDynamicProperty(
