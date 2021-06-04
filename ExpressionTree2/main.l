@@ -130,7 +130,7 @@ static classTree = DynamicSingleton.new(
 // Solution 5
 
 static classTreeFromScript
-    = new ScriptEngine().buildScriptFile("exprtree2.es").compile(new RootExpressionScope());
+    = new ScriptEngine().buildScriptFile("exprtree2.es").compile();
 
 // Common code
 

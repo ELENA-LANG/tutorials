@@ -15,9 +15,18 @@
 <=
              system'dynamic'expressions'MethodExpression (
 =>
-     name "(" parameter next_parameter* ")" body
+     name "(" parameters? ")" body
 <=
              )
+=>;
+
+   #define parameters     ::= 
+<=
+                system'dynamic'expressions'MethodParameterList (
+=>
+                       parameter next_parameter*
+<=
+                )
 =>;
 
    #define next_parameter ::= "," parameter;
@@ -74,21 +83,14 @@
 <=
        system'dynamic'expressions'VariableExpression (
 =>
-           parameter
+           name
 <=
        )
 =>;
 
    #define name     ::= <= "$identifier" =>;
 
-   #define parameter::=
-<=
-     system'dynamic'expressions'ScopeVariable (                    
-=>
-       name
-<=
-     )
-=>;
+   #define parameter::= name;
 
 ]]
 get(target,name)=target.name;
