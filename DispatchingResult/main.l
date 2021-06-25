@@ -1,35 +1,35 @@
 import extensions;
 
-class A
+A
 {
-    // declaring the default implementation
-    get int Value()
+    x;
+    
+    constructor(x)
     {
-        ^ 1
+        this x := x
     }
     
-    // overloading the method if the expected result is long
-    get Value(ref long retVal)
+    get multiret Value(ref string retVal)
     {
-        retVal := 10000000000l
+        retVal := x.toString();
     }
     
-    get Value(ref wide r)
+    get multiret Value(ref int retVal)
     {
-        r := "w"w
+        retVal := x.toInt();
     }
+    
+    Value = new Variant(x);
 }
 
 public program()
 {
-    auto a := new A();
+    A a := 2;
+    var o := a;
     
-    // Value property is dispatched by the expected return value
-    int n := a.Value; 
-    long l := a.Value;
-    wide w := a.Value;
-    
-    console.printLine("int Value = ", n);
-    console.printLine("long Value = ", l);
-    console.printLine("wide Value = ", w);
+    int n := a.Value;
+    string s := a.Value;
+
+    int n2 := o.Value;
+    string s2 := o.Value;
 }
