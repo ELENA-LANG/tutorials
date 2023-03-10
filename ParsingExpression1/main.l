@@ -4,9 +4,9 @@ import system'routines;
 
 class Node
 {
-    prop string Text;
-    prop Node   Left;
-    prop Node   Right;
+    string Text : prop;
+    Node   Left : prop;
+    Node   Right : prop;
     
     constructor()
     {
@@ -54,7 +54,7 @@ buildTree(TokenEnumerator reader)
 {
     Node node := new Node();
     while (reader.next()) {
-        string token := reader.get();
+        string token := *reader;
         if (token == "(") {
             node.append(buildTree(reader));
         }
