@@ -1,16 +1,16 @@
 <configuration>
-    <project>
+  <platform key="Win_x86">
+     <project>
         <executable>parsingexpr2.exe</executable>
-        <arguments></arguments>
-        <output></output>
-        <options></options>
-        <namespace>parsingexpr2</namespace>
-        <template>console</template>
-        <debuginfo>-1</debuginfo>
-    </project>
-    <files>
-        <module>
-            <include>main.l</include>
-        </module>
-    </files>
+     </project>
+  </platform>
+  <project>
+     <namespace>parsingexpr2</namespace>
+     <template>console</template>
+  </project>
+  <files>
+     <module>
+        <include>main.l</include>
+     </module>
+  </files>
 </configuration>
