@@ -80,9 +80,9 @@ It is much better, now we could build a expression tree and evaluate it. We will
     
     class Node
     {
-        prop string Text;
-        prop Node   Left;
-        prop Node   Right;
+        string Text  : prop;
+        Node   Left  : prop;
+        Node   Right : prop;
         
         constructor()
         {
@@ -120,7 +120,7 @@ It is much better, now we could build a expression tree and evaluate it. We will
     {
         Node node := new Node();
         while (reader.next()) {
-            string token := reader.get();
+            string token := *reader;
             if (token == "(") {
                 node.append(buildTree(reader));
             }
@@ -272,7 +272,7 @@ The buildTree change is quite simple:
     {
         Node node := new Node();
         while (reader.next()) {
-            string token := reader.get();
+            string token := *reader;
             if (token == "(") {
                 node.append(buildTree(reader));
             }
