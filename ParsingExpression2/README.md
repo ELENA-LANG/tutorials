@@ -20,25 +20,25 @@ It is easy to see that our tree could be created using only the constructor call
 
     public class Node
     {
-        prop string Text;
-        prop Node   Left;
-        prop Node   Right;
+       string Text  : prop;
+       Node   Left  : prop;
+       Node   Right : prop;
         
-        constructor()
-        {
-        }    
+       constructor()
+       {
+       }    
         
-        constructor(string text)
-        {
-            Text := text
-        }
+       constructor(string text)
+       {
+           Text := text
+       }
         
-        constructor(Node left, Node right, string operation)
-        {
-            Left := left;
-            Right := right;
-            Text := operation;
-        }
+       constructor(Node left, Node right, string operation)
+       {
+           Left := left;
+           Right := right;
+           Text := operation;
+       }
 
     //<...>
 
