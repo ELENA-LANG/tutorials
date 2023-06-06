@@ -1,17 +1,16 @@
 <configuration>
-    <project>
+  <platform key="Win_x86">
+     <project>
         <executable>exprtree1.exe</executable>
-        <arguments></arguments>
-        <output></output>
-        <options></options>
-        <namespace>exprtree1</namespace>
-        <template>console</template>
-        <debuginfo>-1</debuginfo>
-        <classsymbolload>-1</classsymbolload>
-    </project>
-    <files>
-        <module>
-            <include>main.l</include>
-        </module>
-    </files>
+     </project>
+  </platform>
+  <project>
+     <namespace>exprtree1</namespace>
+     <template>console</template>
+  </project>
+  <files>
+     <module>
+        <include>main.l</include>
+     </module>
+  </files>
 </configuration>

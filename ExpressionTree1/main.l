@@ -9,7 +9,7 @@ public singleton MyDynamicallyLoadedClass
     }
 }
 
-preloaded used = new object[]{MyDynamicallyLoadedClass, __subj doSomething};
+symbol used : preloaded = new object[]{MyDynamicallyLoadedClass, mssg doSomething};
 
 dynamicLoading()
 {
