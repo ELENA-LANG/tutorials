@@ -4,15 +4,15 @@ import system'dynamic'expressions;
 import extensions;
 import extensions'scripting;
 
-preloaded used = new object[]{subj get, subj set};
+symbol used : preloaded= new object[]{mssg get, mssg set};
 
 class Person
 {
-    prop string FirstName;
+    string FirstName : prop;
     
-    prop string LastName;
+    string LastName : prop;
     
-    prop int Age;
+    int Age : prop;
 
     // override Age property accessor to support a string value as well   
     set Age(string value)
@@ -180,7 +180,7 @@ public program()
         4 {
             proceed := classSolution(classTree)
         }
-        5{
+        5 {
             proceed := classSolution(classTreeFromScript)            
         };
     
