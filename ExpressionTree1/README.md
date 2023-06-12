@@ -50,7 +50,7 @@ Does this mean that we should always use only VM client? No, we could preload al
         }
     }
     
-    preloaded used = new object[] {MyDynamicallyLoadedClass};
+    symbol used : preloaded = new object[] {MyDynamicallyLoadedClass};
     
     public program()
     {
@@ -73,7 +73,7 @@ Similar, messages should be preloaded if we use stand-alone application.
         }
     }
     
-    preloaded used = new object[] {MyDynamicallyLoadedClass, __subj doSomething};
+    symbol used : preloaded = new object[] {MyDynamicallyLoadedClass, mssg doSomething};
     
     public program()
     {
