@@ -8,11 +8,11 @@ First we have to declare our record:
 
     class Person
     {
-        prop string FirstName;
+        string FirstName : prop;
         
-        prop string LastName;
+        string LastName : prop;
         
-        prop int Age;
+        int Age : prop;
     }
 
 When let's define get operation:
