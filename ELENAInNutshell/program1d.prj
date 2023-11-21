@@ -1,0 +1,23 @@
+<configuration>
+  <platform key="Win_x86">
+     <project>
+        <executable>sandbox3.exe</executable>
+     </project>
+  </platform>
+  <project>
+     <namespace>sandbox3</namespace>
+     <template>console</template>
+  </project>
+    <targets>
+        <target name="script" type="2">
+            <option>[[ #grammar tree ]]</option>
+            <option>~\scripts\lscript60.es</option>
+            <option>grammar1d.es</option>
+        </target>
+    </targets>
+  <files>
+     <module target="script">
+        <include>program1d.ls</include>
+     </module>
+  </files>
+</configuration>

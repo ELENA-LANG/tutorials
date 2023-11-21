@@ -1,5 +1,4 @@
 public program()
 {
-   console.writeLine("Here my first program in ELENA!")
-} 
-
+    system'console.writeLine("Here my first program in ELENA!")
+}
