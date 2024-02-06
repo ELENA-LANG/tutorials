@@ -8,7 +8,7 @@ singleton SumOperation
     
     printArgs(params object[] args)
     {
-        for (int i := 0, i < args.Length, i += 1)
+        for (int i := 0; i < args.Length; i++)
         {
             if (i != 0)
                 console.print(",");

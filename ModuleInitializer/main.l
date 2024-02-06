@@ -8,7 +8,7 @@ singleton MyClass1
 
 // declaring preloaded symbol, which will be automatically
 // invoked on the program start
-preloaded startUp = true.then(
+startUp : preloaded = true.then(
 {
     console.writeLine("foo")
 });

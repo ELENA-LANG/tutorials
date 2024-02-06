@@ -50,7 +50,7 @@ class Tree
     {
         console.printLine("-Tree-");
         console.printLine("Star:",Colors[Star]);
-        for (int i := 1, i < 7, i += 1)
+        for (int i := 1; i < 7; i++)
         {
             console.printLine(Colors[i]," balls:",Balls[i]);
         }
@@ -98,7 +98,7 @@ Solution
     apply()
     {
         int len := conditions.Length;
-        for(int i := 0, i < len, i += 1)
+        for(int i := 0; i < len; i++)
         {
             if (conditions[i] != nil)
             {
@@ -115,7 +115,7 @@ Solution
     bool isSolved()
     {
         int len := conditions.Length;
-        for(int i := 0, i < len, i += 1)
+        for(int i := 0; i < len; i++)
         {
             if (conditions[i] != nil)
             {
@@ -158,7 +158,7 @@ Solver
     
     resolve()
     {
-        for (int i := 0, i < solutions.Length, i += 1)
+        for (int i := 0; i < solutions.Length; i++)
         {
             ifnot(solutions[i].solve())
             {
@@ -177,7 +177,7 @@ Solver
 printTrees(trees)
 {
     console.writeLine();
-    for(int i := 0, i < 3, i += 1)
+    for(int i := 0; i < 3; i++)
     {
         trees[i].display();
     }
@@ -185,7 +185,7 @@ printTrees(trees)
 
 select(id, trees,cond,action)
 {
-    for(int i := 0, i < 3, i += 1)
+    for(int i := 0; i < 3; i++)
     {
         if (cond(trees[i]))
         {
@@ -201,7 +201,7 @@ select(id, trees,cond,action)
 select2(id, trees,cond,action)
 {
     List variants := nil;
-    for(int i := 0, i < 3, i += 1)
+    for(int i := 0; i < 3; i++)
     {
         if (cond(trees[i]))
         {
@@ -218,7 +218,7 @@ select2(id, trees,cond,action)
     };
         
     int variant := 0;    
-    for(int i := 0, i < 3, i += 1)
+    for(int i := 0; i < 3; i++)
     {
         if (cond(trees[i]))
         {
@@ -237,7 +237,7 @@ select2(id, trees,cond,action)
 apply(cond,trees,count1,color1,count2,color2)
 {
     List variants := nil;
-    for(int i := 0, i < 3, i += 1)
+    for(int i := 0; i < 3; i++)
     {
         bool matched := false;
         if (trees[i].containsAny(color1).Inverted && trees[i].containsAny(color2).Inverted)
@@ -268,7 +268,7 @@ apply(cond,trees,count1,color1,count2,color2)
     };
         
     int variant := 0;    
-    for(int i := 0, i < 3, i += 1)
+    for(int i := 0; i < 3; i++)
     {
         if (trees[i].containsAny(color1).Inverted && trees[i].containsAny(color2).Inverted)
         {

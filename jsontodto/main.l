@@ -2,11 +2,11 @@ import system'routines;
 import extensions;
 import extensions'dynamic;
         
-class MyDTO : DTO
+class MyDTO
 { 
-    dto_prop string X; 
+    string X : dto_prop; 
     
-    dto_prop int Y;    
+    int Y : dto_prop;
 
     printMe()
     {
@@ -25,7 +25,7 @@ public program()
     var jsonObject := jsonString.fromJson();
             
     console.printLine("And back to o=", jsonObject);
-    MyDTO.__dto_properties().forEach:(prop)
+    MyDTO.__dto_properties().forEach::(prop)
     {
         console.printLine("o.",prop,"=",prop.getPropertyValue(jsonObject))
     }

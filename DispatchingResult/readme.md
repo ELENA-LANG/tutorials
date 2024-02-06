@@ -13,15 +13,15 @@ In the following code we dispatch the property Value by providing the expected r
     class A
     {
         // declaring the default implementation
-        get int Value()
+        get retoverload int Value()
         {
             ^ 1
         }
         
         // overloading the method if the expected result is long
-        get Value(ref long retVal)
+        get retoverload long Value()
         {
-            retVal := 10000000000l
+            ^ 10000000000l
         }
     }
     
@@ -51,7 +51,7 @@ We may use it for heap allocated objects as well. In this case we have to provid
         string Value
             = "s";
     
-        get multiret Value(ref wide r)
+        get multiret wide Value()
         {
             r := "w"w
         }

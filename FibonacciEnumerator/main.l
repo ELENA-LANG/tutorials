@@ -27,7 +27,7 @@ public program()
     auto e := new FibonacciGenerator();
     
     int n := console.print("Enter the length of fibonacci series:").readLine().toInt();
-    for(int i := 0, i < n, i += 1) {
+    for(int i := 0; i < n; i++) {
         console.printLine(e.next())
     };
     

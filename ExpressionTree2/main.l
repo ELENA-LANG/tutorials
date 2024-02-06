@@ -100,7 +100,7 @@ static nodes2 = new Map<string,object>()
                     
 // Solution 4
 
-static classTree = DynamicSingleton.new(
+static classTree = DynamicSingleton.load(
         Expression.Method(
             "get",            
             Expression.CodeBlock(
@@ -191,7 +191,7 @@ public program()
 set FirstName Alex
 get FirstName");
 
-    until(string line := console.write(">").readLine(), line == "")
+    until(string line := console.write(">").readLine(); line == "")
     {
         proceed(r, line.split());        
     }

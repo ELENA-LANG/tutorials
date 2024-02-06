@@ -38,7 +38,7 @@ public class Node
             "-" { ^ Left.eval() - Right.eval() }
             "*" { ^ Left.eval() * Right.eval() }
             "/" { ^ Left.eval() / Right.eval() }
-            : { ^ Text.toReal() }
+            ! { ^ Text.toReal() }
       }        
    }
 }
@@ -49,7 +49,7 @@ public program()
    engine.loadPath("grammar2.es");
     
    var line;
-   until(line := console.write(">").readLine(), line == "")
+   until(line := console.write(">").readLine(); line == "")
    {
       var tape := engine.buildScript(line);
         

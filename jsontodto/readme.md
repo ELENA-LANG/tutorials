@@ -4,11 +4,11 @@ The following code serializes a DTO to JSON formatted string and back to a dynam
     import extensions;
     import extensions'dynamic;
             
-    class MyDTO : DTO
+    class MyDTO
     { 
-        dto_prop string X; 
+        string X : dto_prop; 
         
-        dto_prop int Y;    
+        int Y : dto_prop;
     
         printMe()
         {

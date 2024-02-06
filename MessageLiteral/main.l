@@ -44,22 +44,22 @@ program2()
 program3()
 {
   console.print("program3:");
-  auto m := subjconst foo;
+  auto m := mssg foo;
   var a := new A();
   
   m(a);
   m(a,2);
 }
 
-program4(object[] args)
-{
-  console.print("program4:");
-  auto m := subjconst foo;
-  
-  var m_args := new object[]{ new A() } + args; 
-  
-  m(inlinearg m_args);
-}
+//program4(object[] args)
+//{
+//  console.print("program4:");
+//  auto m := mssg foo;
+//  
+//  var m_args := new object[]{ new A() } + args; 
+//  
+//  m(inlinearg m_args);
+//}
   
 program5()
 {
@@ -102,7 +102,7 @@ public program()
     program1();
     program2();
     program3();
-    program4(new object[]{3,"string"});
+//    program4(new object[]{3,"string"});
     program5();
     program6();
 }
