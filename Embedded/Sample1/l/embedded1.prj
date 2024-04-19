@@ -1,0 +1,12 @@
+<configuration>
+    <files>
+        <module>
+            <file>embedded1.l</file>
+        </module>
+    </files>
+    <project>
+        <output>..\bin</output>
+        <namespace>embedded1</namespace>
+        <template>lib60</template>
+    </project>
+</configuration>
