@@ -1,20 +1,38 @@
 #pragma comment(lib, "..\\..\\shared\\elenavm60.lib")
 
 #include <iostream>
+#include <string>
+
 #include "..\..\common\elenavm.h"
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Calling ELENA libarary from C++, Sample 2\n";
+    cout << "Calling ELENA libarary from C++, Sample 2\n";
+    cout << "To quit press enter\n" ;
 
-    if (!elenavm_api::Prepare("embedded2", "."))
-       std::cout << "The initialization is failed\n";
+    if (!elenavm_api::Prepare("embedded2", ".")) {
+       cout << "The initialization is failed\n";
 
-    char buffer[1024];
-    int len = elenavm_api::Execute("embedded2'calculating", "2", buffer, 1023);
-    if (len > 0) {
-       buffer[len] = 0;
-       std::cout << "The operation result is " << buffer << "\n";
+       return -1;
     }
-    else std::cout << "The operation is failed\n";
+
+    string grades;
+    char buffer[1024];
+    while (true) {
+       cout << "Enter an expression to evaluate:" ;
+       getline(cin, grades);
+       if (!grades.empty()) {
+          int len = elenavm_api::Execute("embedded2'calculating", grades.c_str(), buffer, 1023);
+          if (len > 0) {
+             buffer[len] = 0;
+             cout << grades << "=" << buffer << "\n";
+          }
+          else cout << "The operation is failed\n";
+       }
+       else break;
+    }
+
+    return 0;
 }
