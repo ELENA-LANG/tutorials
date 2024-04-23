@@ -185,7 +185,7 @@ To get the data from ELENA we have to declare a temporal buffer with sufficient 
 with two extra parameters, the pointer to the output buffer and the maximal size of the buffer. If the code will be successfully implemented
 it will return a size of returned data. If the operation fails the result will be -1. If nothing to return the value will be 0.
 
-To print the output safely we have to terminate the string. And now the result can be displayed.
+To print the output safely we have to put a zero at the end position. And now the result can be displayed.
 
 Once again let's compile and run it:
 
