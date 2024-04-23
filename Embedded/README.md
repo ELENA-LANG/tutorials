@@ -132,7 +132,7 @@ Let's compile and run it as well:
     Hello World from ELENA VM
 
 As you see it is quite simple. The virtual machine provides a simple API which is easy to use. But if we need to get some data from
-our ELENA code? Is it possible. Yes, it is providing the data is a string.
+our ELENA code? Is it possible? Yes, if the returning value is a string as well.
 
 In the next example we will create a library which will calculate an expression. I will not provide the whole code (it is available in this
 repo) just the main part:
