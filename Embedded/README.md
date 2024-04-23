@@ -308,7 +308,7 @@ The output will be similar:
 
 So as you see embedding ELENA code inside the application written in another language is quite simple (of course it doesn't mean that ELENA function
 has to be used like a native function, it is another level of interaction). But can it be used
-in any other language a part from C++ / C#? Actually yes, any language which able to call "C" style dynamic library can be used instead. 
+in any other language apart from C++ / C#? Actually yes, any language which able to call "C" style dynamic library can be used instead. 
 
 That's all for this tutorial. Feel free to ask any questions if something is not clear.
 
