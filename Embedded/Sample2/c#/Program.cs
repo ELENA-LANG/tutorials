@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 
-Console.WriteLine("Calling ELENA libarary from C#, Sample 2");
+Console.WriteLine("Calling ELENA library from C#, Sample 2");
 Console.WriteLine("To quit press enter");
 
 try

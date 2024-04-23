@@ -5,7 +5,7 @@
 
 int main()
 {
-    std::cout << "Calling ELENA libarary from C++, Sample 1\n";
+    std::cout << "Calling ELENA library from C++, Sample 1\n";
 
     if (!elenavm_api::Prepare("embedded1", "."))
        std::cout << "The initialization is failed\n";

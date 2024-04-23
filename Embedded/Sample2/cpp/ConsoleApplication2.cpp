@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    cout << "Calling ELENA libarary from C++, Sample 2\n";
+    cout << "Calling ELENA library from C++, Sample 2\n";
     cout << "To quit press enter\n" ;
 
     if (!elenavm_api::Prepare("embedded2", ".")) {

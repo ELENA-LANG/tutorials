@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Calling ELENA libarary from C#, Sample 1");
+Console.WriteLine("Calling ELENA library from C#, Sample 1");
 
 try
 {
