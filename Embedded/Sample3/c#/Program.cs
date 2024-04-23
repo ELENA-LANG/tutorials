@@ -15,19 +15,6 @@ try
     string result = ELENAVMWrapper.ExecuteAndReturn("embedded3'sorting", json);
 
     Console.WriteLine($"{json} >> {result}");
-
-    //while (true)
-    //{
-    //    Console.Write("Enter an expression to evaluate:");
-    //    string expr = Console.ReadLine();
-    //    if (expr.Length > 0)
-    //    {
-    //        string result = ELENAVMWrapper.ExecuteAndReturn("embedded2'calculating", expr);
-
-    //        Console.WriteLine($"{expr}={result}");
-    //    }
-    //    else break;
-    //}
 }
 catch (Exception e)
 {
