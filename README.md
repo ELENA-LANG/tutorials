@@ -29,3 +29,4 @@ Tutorial | Description | Level
 [ExpressionTree2](https://github.com/ELENA-LANG/tutorials/tree/master/ExpressionTree2) | Building code at run-time in ELENA, Part 2 | Advanced
 [ParsingExpression1](https://github.com/ELENA-LANG/tutorials/tree/master/ParsingExpression1) | Using ELENA Script Engine to parse an arithmetic expression, Part 1 | Advanced
 [ParsingExpression2](https://github.com/ELENA-LANG/tutorials/tree/master/ParsingExpression2) | Using ELENA Script Engine to parse an arithmetic expression, Part 2 | Advanced
+[Embedded ELENAVM](https://github.com/ELENA-LANG/tutorials/blob/master/Embedded/README.md) | Using ELENA VM inside another programming language | Advanced
