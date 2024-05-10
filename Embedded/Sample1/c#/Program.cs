@@ -4,7 +4,7 @@ Console.WriteLine("Calling ELENA library from C#, Sample 1");
 try
 {
     ELENAVMWrapper.Prepare("embedded1", ".");
-    ELENAVMWrapper.Execute("embedded1'printingOut", "Hello World");
+    ELENAVMWrapper.Execute("embedded1'printingOut", "C#");
 }
 catch (Exception e)
 {

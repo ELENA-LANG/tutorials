@@ -10,6 +10,6 @@ int main()
     if (!elenavm_api::Prepare("embedded1", "."))
        std::cout << "The initialization is failed\n";
 
-    if(!elenavm_api::Execute("embedded1'printingOut", "Hello World"))
+    if(!elenavm_api::Execute("embedded1'printingOut", "C++"))
        std::cout << "The operation is failed\n";
 }

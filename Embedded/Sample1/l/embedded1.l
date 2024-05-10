@@ -1,4 +1,4 @@
 public printingOut(arg)
 {
-   console.writeLine(arg + " from ELENA VM");
+   console.writeLine("Hello from " + arg);
 }

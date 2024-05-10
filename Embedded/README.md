@@ -2,14 +2,22 @@
 In this tutorial we will learn how to use ELENA Virtual Machine inside an application written in a different language. We will take C++ and C#.
 
 ELENA Language supports two types of output : standalone and a VM client. The later loads a virtual machine into its memory and starts the program.
-But it is quite possible to do it without any client at all.
+But the virtual machine can be used without any client at all. It provides a special interface allowing to communicate with ELENA code directly.
 
-Let's start with a simple ELENA code. We will declare a function which will print its argument adding a literal string:
+But Why can we call ELENA classes directly? The proble is that they have to live inside ELENA environment. They have to stay inside the virtual
+machine space, so the guarbage collector will notice that they are still alive. And so on. The only data which can be easily passed to the classes
+are stack-allocated ones. All in all, it is very risky and unsafe operations. So instead we will use the specially designed interface for
+that kind of operations.
+
+Let's start with a simple ELENA code. We will declare a function which will print a message:
 
     public printingOut(arg)
     {
-       console.writeLine(arg + " from ELENA VM");
+       console.writeLine("Hello from " + arg);
     }
+
+The code is quite straight-forward, the argument is combined with a literal stringand printed in the console. The argument type is
+not provided for simplicity. 
 
 Because our code is not going to be used standalone, we have to create a library - embedded1.prj and compile it:
 
@@ -27,7 +35,7 @@ Because our code is not going to be used standalone, we have to create a library
 The result of this compilation is a compiled library file - embedded1.nl. We can call its code from another language.
 
 Let's start with C++. For our purpose the simplest console application will be enough. We will need elenavm.h header to describe
-the required part of ELENAVM API:
+the required part of ELENAVM API. Several helper functions are declared to simplify the operation:
 
     extern "C"
     {
@@ -61,11 +69,12 @@ Now let's write the main part of the code:
     int main()
     {
         elenavm_api::Prepare("embedded1", ".");    
-        elenavm_api::Execute("embedded1'printingOut", "Hello World");
+        elenavm_api::Execute("embedded1'printingOut", "C++");
     }
 
-The code consists of two parts. The first one is setting up the virtual machine by calling Prepare help function. We have to pass two
-arguments. The first one is a root namespace of our ELENA library and the second one is a path to the compiled file.
+The code consists of two parts. The first one is setting up the virtual machine by calling Prepare help function. It must be called before
+any operations and only once. We have to pass two arguments. The first one is a root namespace of our ELENA library and the second one 
+is a path to the compiled file.
 
 The secode operation does the main job. Its invokes the function with a name "embedded1'printingOut" and passes the argument - a string
 to be printed.
@@ -75,7 +84,7 @@ After compilation let's run it:
     >ConsoleApplication1.exe 
     ELENA VM 6.0.36 (C)2022-2024 by Aleksey Rakov
     Initializing...
-    Hello World from ELENA VM
+    Hello from C++
 
 Similar we can call this library from C# console application as well. For this we will need a helper class as well:
 
@@ -123,15 +132,15 @@ It does practically the same as functions declared in elenavm.h header.
 The main code using console template is even simpler than C++ one:
 
     ELENAVMWrapper.Prepare("embedded1", ".");
-    ELENAVMWrapper.Execute("embedded1'printingOut", "Hello World");
+    ELENAVMWrapper.Execute("embedded1'printingOut", "C#");
 
 Let's compile and run it as well:
 
     ELENA VM 6.0.36 (C)2022-2024 by Aleksey Rakov
     Initializing...
-    Hello World from ELENA VM
+    Hello from C#
 
-As you see it is quite simple. The virtual machine provides a simple API which is easy to use. But if we need to get some data from
+As you can see it pretty simple. The virtual machine provides a simple API which is easy to use. But if we need to get some data from
 our ELENA code? Is it possible? Yes, if the returning value is a string as well.
 
 In the next example we will create a library which will calculate an expression. I will not provide the whole code (it is available in this
@@ -217,7 +226,11 @@ After the compilation the result is the same:
     Enter an expression to evaluate:2+3*4=
     2+3*4=14.0
 
-The code above is quite simple as well as data passed to and from ELENA code. But is it possible to provide more sophisticated data?
+This code is a bit more complicated but still very straight-forward. As I mentions above we cannot directly iteract with ELENA but we can
+use a buffer. The simplest one is a stack-allocated. Of course we can use any other OS dependant buffers: files, pipelines and so on. 
+But the stack buffer is good for our educational purpose.
+
+Still it is a simple string. Is it possible to provide more sophisticated data?
 Yes, if we will convert them to JSON. In the next example we will sort an array passed from outside ELENA program and return it back.
 
 Our ELENA code will consists once again from the function with a single argument. But this time we will deserialize it from Json, sort
@@ -265,7 +278,7 @@ So let's write C++ code. For Json operation we will use nlohmann json library:
         return 0;
     }
 
-The code is prety simple. We format the array as Json, pass it to ELENA and print the result:
+The code is prety simple. We format the array as Json, pass it to ELENA and print the result.
 
     Calling ELENA libarary from C++, Sample 3
     ELENA VM 6.0.36 (C)2022-2024 by Aleksey Rakov
@@ -313,5 +326,6 @@ in any other language apart from C++ / C#? Actually yes, any language which able
 That's all for this tutorial. Feel free to ask any questions if something is not clear.
 
 *Just a side note, though using one framework inside another one it is not always a good idea, in this tutorial I show this 
-possibility mostly for an educational purpose. ELENAVM consists only from one dll, plus compiled libraries. And in modern computers there
-is enough memory for them both to coexist inside one application. But of course it is far from ideal solution for any practical reason.*
+possibility mostly for an educational purpose. ELENAVM only consists of one dynamic library, plus compiled ELENA libraries. And in modern 
+computers there is enough memory for them both to coexist inside one application. But of course it is far from ideal solution for any practical 
+reason.*
