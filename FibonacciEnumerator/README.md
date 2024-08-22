@@ -13,12 +13,12 @@ And it stops when we simply stop calling it again.
 In ELENA any method can be made yieldable. The class may have several yieldable methods which can
 be independent from each other. 
 
-Let's do it. The method should start with **yieldable** attribute:
+Let's do it. The method should start with **yield** attribute:
 
-    public FibonacciGenerator
+    public singleton FibonacciGenerator
     {
-        // declaring a yieldable method
-        yieldable next()
+        // declaring an iterator method
+        yield Enumerator enumerator()
         {
         }
     }  
@@ -26,27 +26,25 @@ Let's do it. The method should start with **yieldable** attribute:
 Yield return statement should start with **yield** attribute. Of course there can be several yield
 return statement:
 
-    yieldable next()
+    yield Enumerator enumerator()
     {
-        long n_2 := 1l; 
-        long n_1 := 1l;
-
-        // first yield return statement
-        yield:n_2;             
-        // second yield return statement
-        yield:n_1;
-
-        while(true)
-        {
-            long n := n_2 + n_1;
-
-            // the last yield return statement will be called indefinitely
-            yield:n;
-
-            n_2 := n_1;
-            n_1 := n
-        }
+       long n_2 := 1l; 
+       long n_1 := 1l;
+       
+       $yield n_2;             
+       $yield n_1;
+       
+       while(true)
+       {
+          long n := n_2 + n_1;
+          
+          $yield n;
+          
+          n_2 := n_1;
+          n_1 := n
+       }
     }
+
 
 So how it works? On the first method call, the code is executed until the the yield return statement. 
 Then the method context (local variables) are saved and the control goes back to the caller. Next method call
@@ -56,18 +54,19 @@ variables the overhead can be minimized.
 
 Now let's use our generator:
 
+
     public program()
     {
-        // creating a generator
-        auto e := new FibonacciGenerator();
+       auto e := FibonacciGenerator.enumerator();
         
-        int n := console.print("Enter the length of fibonacci series:").readLine().toInt();
-        for(int i := 0, i < n, i += 1) {
-            // calling it required times
-            console.printLine(e.next())
-        };
+       int n := console.print("Enter the length of fibonacci series:").readLine().toInt();
+       for(int i := 0; i < n; i++) {
+          e.next();
+          
+          console.printLine(*e)
+       };
         
-        console.readChar()
+       console.readChar()
     }
 
 The output will be:
