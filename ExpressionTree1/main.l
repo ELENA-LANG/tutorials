@@ -5,7 +5,7 @@ public singleton MyDynamicallyLoadedClass
 {
     doSomething()
     {
-        console.writeLine("did something")
+        Console.writeLine("did something")
     }
 }
 

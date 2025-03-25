@@ -15,7 +15,7 @@ class A : IA
 {
    bar()
    {
-      console.writeLine("bar")
+      Console.writeLine("bar")
    }    
 }
 
@@ -23,7 +23,7 @@ class B : IB
 {
    foo()
    {
-      console.writeLine("foo")
+      Console.writeLine("foo")
    }    
 }
 
@@ -38,7 +38,7 @@ Decorator
     
    generic()
    {
-      console.print("decorating ");
+      Console.print("decorating ");
         
       __received(target)
    }
@@ -58,20 +58,20 @@ singleton C
 {
    proceed(IA a)
    {
-      console.print(a,":");
+      Console.print(a,":");
       a.bar()
    }
     
    proceed(IB b)
    {
-      console.print(b,":");
+      Console.print(b,":");
       b.foo()
    }
     
    // default handler
    proceed(o)
    {
-      console.printLine(o,": unknown");
+      Console.printLine(o,": unknown");
    }    
 }
 

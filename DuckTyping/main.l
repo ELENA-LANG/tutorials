@@ -8,7 +8,7 @@ public class Duck
     
    fly()
    {
-      console.printLine("Duck flying")
+      Console.printLine("Duck flying")
    }    
 }
 
@@ -18,7 +18,7 @@ public class Airplane
     
    fly()
    {
-      console.printLine("Airplane  flying")
+      Console.printLine("Airplane  flying")
    }    
 }
 
@@ -26,7 +26,7 @@ public class Whale
 {
    swim()
    {
-      console.printLine("Whale swimming")
+      Console.printLine("Whale swimming")
    }
 }
 
@@ -36,7 +36,7 @@ program1()
 {
    list.forEach::(animal)
    {
-      animal.fly() \ then({ console.printLine(animal, " does not fly") })
+      animal.fly() \ then({ Console.printLine(animal, " does not fly") })
    }
 }
 

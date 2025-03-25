@@ -10,7 +10,7 @@ class MyDTO
 
     printMe()
     {
-       console.printLine(self,"{x:",X,",y:",Y,"}")
+       Console.printLine(self,"{x:",X,",y:",Y,"}")
     }
 }
                                                         
@@ -20,13 +20,13 @@ public program()
   
     var jsonString := object.toJson();    
 
-    console.printLine("myTDO serialized to ", jsonString);
+    Console.printLine("myTDO serialized to ", jsonString);
     
     var jsonObject := jsonString.fromJson();
             
-    console.printLine("And back to o=", jsonObject);
+    Console.printLine("And back to o=", jsonObject);
     MyDTO.__dto_properties().forEach::(prop)
     {
-        console.printLine("o.",prop,"=",prop.getPropertyValue(jsonObject))
+        Console.printLine("o.",prop,"=",prop.getPropertyValue(jsonObject))
     }
 }

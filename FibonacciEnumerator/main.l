@@ -26,12 +26,12 @@ public program()
 {
    auto e := FibonacciGenerator.enumerator();
     
-   int n := console.print("Enter the length of fibonacci series:").readLine().toInt();
+   int n := Console.print("Enter the length of fibonacci series:").readLine().toInt();
    for(int i := 0; i < n; i++) {
       e.next();
 
-      console.printLine(*e)
+      Console.printLine(*e)
    };
     
-   console.readChar()
+   Console.readChar()
 }
