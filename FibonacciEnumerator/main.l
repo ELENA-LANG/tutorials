@@ -1,37 +1,41 @@
 import extensions;
 
-public singleton FibonacciGenerator
+singleton FibonacciEnumerable : Enumerable
 {
-   yield Enumerator enumerator()
+   Enumerator enumerator()
+      = FibonacciEnumerable.infinitEnumerator();
+
+   yield Enumerator infinitEnumerator()
    {
-      long n_2 := 1l; 
-      long n_1 := 1l;
+        long n_2 := 1l; 
+        long n_1 := 1l;
 
-      $yield n_2;             
-      $yield n_1;
+        :yield n_2;             
+        :yield n_1;
 
-      while(true)
-      {
-         long n := n_2 + n_1;
+        while(true)
+        {
+            long n := n_2 + n_1;
 
-         $yield n;
+            :yield n;
 
-         n_2 := n_1;
-         n_1 := n
-      }
+            n_2 := n_1;
+            n_1 := n
+        }
    }
 }
 
+
 public program()
 {
-   auto e := FibonacciGenerator.enumerator();
+    auto e := FibonacciEnumerable.enumerator();
     
-   int n := Console.print("Enter the length of fibonacci series:").readLine().toInt();
-   for(int i := 0; i < n; i++) {
-      e.next();
-
-      Console.printLine(*e)
-   };
+    if(!e.next())
+       InvalidOperationException.raise();
     
-   Console.readChar()
+    for(int i := 0; i < 10 && e.next(); i += 1) {
+        Console.printLine(*e)
+    };
+    
+    Console.readChar()
 }
