@@ -46,7 +46,7 @@ Sometimes you have to pass your argument into another function. A variadic argum
         self.printArgs(params args);
     }
 
-Variadic argument can be unboxed as well. We will have to use **inlinearg** prefix. The array content will be unboxed and passed as a normal argument list:
+Variadic argument can be unboxed as well. We will have to use **params** prefix. The array content will be unboxed and passed as a normal argument list:
 
         var list := args;
         Console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(params list))        
