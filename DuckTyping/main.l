@@ -32,7 +32,7 @@ public class Whale
 
 list = new object[] { new Duck(), new Airplane(), new Whale() };
 
-program1()
+Program1()
 {
    list.forEach::(animal)
    {
@@ -40,7 +40,7 @@ program1()
    }
 }
 
-program2()
+Program2()
 {
    list.forEach::(animal)
    {
@@ -50,7 +50,7 @@ program2()
    }
 }
 
-program3()
+Program3()
 {
    list.forEach::(animal)
    {
@@ -62,10 +62,10 @@ program3()
 
 const Solution = 3; /*select 1,2 or 3*/
 
-public program()
+public Program()
 {
     Solution =>
-        1 { program1() }
-        2 { program2() }        
-        3 { program3() }        
+        1 : { Program1() }
+        2 : { Program2() }        
+        3 : { Program3() }        
 }
