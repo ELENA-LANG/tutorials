@@ -1,4 +1,4 @@
 public printingOut(arg)
 {
-   console.writeLine("Hello from " + arg);
+   Console.writeLine("Hello from " + arg);
 }

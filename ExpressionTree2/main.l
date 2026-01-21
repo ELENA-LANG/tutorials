@@ -141,7 +141,7 @@ closureSolution(select) = (r,words)
     var f := select(words[0]);
     (words.Length) =>
         2 {
-            console.printLine(f(r, words[1]));
+            Console.printLine(f(r, words[1]));
         }
         3 {
             f(r, words[1], words[2]);
@@ -154,7 +154,7 @@ classSolution(class) = (r,words)
     
     (words.Length) =>
         2 {            
-            console.printLine(prop(class, r, words[1]))
+            Console.printLine(prop(class, r, words[1]))
         }
         3 {
             var c := class;
@@ -186,12 +186,12 @@ public program()
     
     var r := new Person();
     
-    console.printLine(
+    Console.printLine(
 "Enter ""verb property value"" or press enter to stop
 set FirstName Alex
 get FirstName");
 
-    until(string line := console.write(">").readLine(); line == "")
+    until(string line := Console.write(">").readLine(); line == "")
     {
         proceed(r, line.split());        
     }

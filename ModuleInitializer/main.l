@@ -2,7 +2,7 @@ singleton MyClass1
 {
     doSomething()
     {
-        console.writeLine("bar")
+        Console.writeLine("bar")
     }
 }
 
@@ -10,7 +10,7 @@ singleton MyClass1
 // invoked on the program start
 startUp : preloaded = true.then(
 {
-    console.writeLine("foo")
+    Console.writeLine("foo")
 });
 
 public program()

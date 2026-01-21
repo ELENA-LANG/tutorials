@@ -68,12 +68,12 @@ public program()
 {
     var n := 7o;
     var m := 2o;
-    console.printLine(n,"+",m,"=",n + m);
+    Console.printLine(n,"+",m,"=",n + m);
 
     n := 24o;
     m := 7o;
-    console.printLine(n,"+",m,"=",n + m);
-    console.printLine(n,"-",m,"=",n - m);
-    console.printLine(n,"*",m,"=",n * m);
-    console.printLine(n,"/",m,"=",n / m)
+    Console.printLine(n,"+",m,"=",n + m);
+    Console.printLine(n,"-",m,"=",n - m);
+    Console.printLine(n,"*",m,"=",n * m);
+    Console.printLine(n,"/",m,"=",n / m)
 }

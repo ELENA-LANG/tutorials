@@ -11,20 +11,20 @@ singleton SumOperation
         for (int i := 0; i < args.Length; i++)
         {
             if (i != 0)
-                console.print(",");
+                Console.print(",");
             
-            console.print(args[i])
+            Console.print(args[i])
         }
     }
     
     printAndSum(string name, params object[] args)
     {
-        console.print(name,":");
+        Console.print(name,":");
         self.printArgs(params args);
-        console.printLine();
+        Console.printLine();
 
         var list := args;
-        console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(inlinearg list))        
+        Console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(inlinearg list))        
     }
 }
 

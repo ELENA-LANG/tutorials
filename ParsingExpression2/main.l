@@ -49,10 +49,10 @@ public program()
    engine.loadPath("grammar2.es");
     
    var line;
-   until(line := console.write(">").readLine(); line == "")
+   until(line := Console.write(">").readLine(); line == "")
    {
       var tape := engine.buildScript(line);
         
-      console.printLine("=",tape.eval());        
+      Console.printLine("=",tape.eval());        
    }
 }

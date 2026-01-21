@@ -48,11 +48,11 @@ class Tree
     
     display()
     {
-        console.printLine("-Tree-");
-        console.printLine("Star:",Colors[Star]);
+        Console.printLine("-Tree-");
+        Console.printLine("Star:",Colors[Star]);
         for (int i := 1; i < 7; i++)
         {
-            console.printLine(Colors[i]," balls:",Balls[i]);
+            Console.printLine(Colors[i]," balls:",Balls[i]);
         }
     }
     
@@ -176,7 +176,7 @@ Solver
 
 printTrees(trees)
 {
-    console.writeLine();
+    Console.writeLine();
     for(int i := 0; i < 3; i++)
     {
         trees[i].display();

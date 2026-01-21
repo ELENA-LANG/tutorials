@@ -2,6 +2,6 @@ public class MyClass
 {
     foo()
     {
-        console.writeLine("bar")
+        Console.writeLine("bar")
     }
 }
