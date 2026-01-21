@@ -49,6 +49,6 @@ Sometimes you have to pass your argument into another function. A variadic argum
 Variadic argument can be unboxed as well. We will have to use **inlinearg** prefix. The array content will be unboxed and passed as a normal argument list:
 
         var list := args;
-        Console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(inlinearg list))        
+        Console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(params list))        
 
 So it is quite easy to use variadic arguments in ELENA programs. Just add **params** prefix in your method signature and the compiler will take care of the rest!
