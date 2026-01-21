@@ -84,13 +84,13 @@ We can alternatively use a special method - *canFly* and an extension method *ba
         }
     }
     
-    public program()
+    public Program()
     {
         var list := new object[] { new Duck(), new Airplane(), new Whale() };
         
-        list.forEach:(animal)
+        list.forEach::(animal)
         {
-            if (animal.canFly() \ back:false) {
+            if (animal.canFly() \ back(false)) {
                 animal.fly();
             }                
         }
@@ -105,11 +105,11 @@ And of course we may simply check if the object supports the method (though the 
 
     // <...>
     
-    public program()
+    public Program()
     {
         var list := new object[] { new Duck(), new Airplane(), new Whale() };
         
-        list.forEach:(animal)
+        list.forEach::(animal)
         {
             if (animal.respondTo(mssgconst fly[1])) {
                 animal.fly();
