@@ -12,24 +12,24 @@ The following code serializes a DTO to JSON formatted string and back to a dynam
     
         printMe()
         {
-           console.printLine(self,"{x:",X,",y:",Y,"}")
+           Console.printLine(self,"{x:",X,",y:",Y,"}")
         }
     }
                                                             
-    public program()
+    public Program()
     {
         var object := new MyDTO{ this X := "string"; this Y := 2; };
       
         var jsonString := object.toJson();    
     
-        console.printLine("myTDO serialized to ", jsonString);
+        Console.printLine("myTDO serialized to ", jsonString);
         
         var jsonObject := jsonString.fromJson();
                 
-        console.printLine("And back to o=", jsonObject);
-        MyDTO.__dto_properties().forEach:(prop)
+        Console.printLine("And back to o=", jsonObject);
+        MyDTO.__dto_properties().forEach::(prop)
         {
-            console.printLine("o.",prop,"=",prop.getPropertyValue(jsonObject))
+            Console.printLine("o.",prop,"=",prop.getPropertyValue(jsonObject))
         }
     }
 
