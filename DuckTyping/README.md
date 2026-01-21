@@ -35,11 +35,11 @@ Here the example from [Wikipedia](https://en.wikipedia.org/wiki/Duck_typing)
         }
     }
     
-    public program()
+    public Program()
     {
         var list := new object[] { new Duck(), new Airplane(), new Whale() };
         
-        list.forEach:(animal)
+        list.forEach::(animal)
         {
             animal.fly() \ then((){ console.printLine(animal.__getClassName(), " does not fly") })        
         }
