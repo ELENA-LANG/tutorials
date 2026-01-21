@@ -17,19 +17,19 @@ Variadic argument is implemented as a special type of an array. It should start 
 
     printArgs(params object[] args)
     {
-        for (int i := 0, i < args.Length, i += 1)
+        for (int i := 0; i < args.Length; i += 1)
         {
             if (i != 0) {
-                console.print(",")
+                Console.print(",")
             };
-            console.print(args[i])
+            Console.print(args[i])
         }
     }
 
 
 Nothing special should be done to call a variadic function:
 
-    public program()
+    public Program()
     {
         SumOperation.printAndSum("A", 1);
         SumOperation.printAndSum("B", 1,2,3,4);
@@ -42,13 +42,13 @@ Sometimes you have to pass your argument into another function. A variadic argum
 
     printAndSum(string name, params object[] args)
     {
-        console.print(name,":");
+        Console.print(name,":");
         self.printArgs(params args);
     }
 
 Variadic argument can be unboxed as well. We will have to use **inlinearg** prefix. The array content will be unboxed and passed as a normal argument list:
 
         var list := args;
-        console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(inlinearg list))        
+        Console.printLine("Sum of(",list.asEnumerable(),")=", self.sumArgs(inlinearg list))        
 
 So it is quite easy to use variadic arguments in ELENA programs. Just add **params** prefix in your method signature and the compiler will take care of the rest!
