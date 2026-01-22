@@ -42,7 +42,7 @@ treeEvaluating()
     c.eval()                                
 }    
     
-public program()
+public Program()
 {
     dynamicLoading();
     

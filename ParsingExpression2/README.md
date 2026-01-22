@@ -81,14 +81,14 @@ we will add a new parser. Let's add the following block to the grammar file:
 And a simple code to demonstrate the output:
 
     // <... >
-    public program()
+    public Program()
     {
         auto engine := new extensions'scripting'ScriptEngine();
         engine.loadPath("grammar2.es");
         
         var output := engine.loadPathAsText("script1.txt");
     
-        console.printLine(output);
+        Console.printLine(output);
     }
 
 The output is:

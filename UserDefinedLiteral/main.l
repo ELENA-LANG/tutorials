@@ -13,7 +13,7 @@ public struct OctalNumber
     
     cast o(string s)
     {
-        value := intConvertor.convert(s, 8)
+        value := IntConvertor.convert(s, 8)
     }
 
     internal constructor sum(OctalNumber o1, OctalNumber o2)
@@ -49,7 +49,7 @@ public struct OctalNumber
     }
 
     string toPrintable()
-        = stringConvertor.convert(value, 8);
+        = StringConvertor.convert(value, 8);
 
     OctalNumber add(OctalNumber n)
         = OctalNumber.sum(self, n);
@@ -64,7 +64,7 @@ public struct OctalNumber
         = OctalNumber.frac(self, n);
 }
 
-public program()
+public Program()
 {
     var n := 7o;
     var m := 2o;

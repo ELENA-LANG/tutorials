@@ -4,7 +4,7 @@ In many dynamic programming languages to call the object method we have to send 
     {
         foo()
         {
-            console.writeLine("bar")
+            Console.writeLine("bar")
         }
     }
 
@@ -13,7 +13,7 @@ In many dynamic programming languages to call the object method we have to send 
         target.foo()
     } 
  
-    public program()
+    public Program()
     {
        invokeFoo(new A()) 
     }
@@ -37,15 +37,15 @@ When the number of arguments can vary we can use a message name literal:
     {
         foo()
         {
-            console.printLine("bar")
+            Console.printLine("bar")
         }
         foo(int arg)
         {
-            console.printLine("bar(",arg,")")
+            Console.printLine("bar(",arg,")")
         }
     }
  
-    public program()
+    public Program()
     {
        auto m := subjconst foo;
        var a := new A();
@@ -68,25 +68,25 @@ In general case the number of arguments can be known only in run-time. So we cou
     {
         foo()
         {
-            console.writeLine("bar")
+            Console.writeLine("bar")
         }
         
         foo(int arg)
         {
-            console.printLine("bar(",arg,")")
+            Console.printLine("bar(",arg,")")
         }
                
         foo(int arg, string arg2)
         {
-            console.printLine("bar(",arg,",",arg2,")")
+            Console.printLine("bar(",arg,",",arg2,")")
         }       
     } 
  
     args = new object[] {3,"string"2}; 
  
-    public program()
+    public Program()
     {
-       console.print("program4:");
+       Console.print("program4:");
        auto m := subjconst foo;
        
        var m_args := new object[]{ new A() } + args; 
@@ -100,13 +100,13 @@ Being a first class function a message literal can be loaded dynamically:
     {
         callMe()
         {
-            console.writeLine("Hello")
+            Console.writeLine("Hello")
         }
     }
     
-    public program()
+    public Program()
     {
-        var messageNameStr := console.write("Enter the message name:").readLine();
+        var messageNameStr := Console.write("Enter the message name:").readLine();
         auto messageName := new MessageName(messageNameStr); 
     
         var a := new A();
@@ -131,11 +131,11 @@ It is possible to save incoming messages using a generic handler and __received 
         
         printIncomeMessages()
         {
-            console.printLine(incomeMessages.asEnumerable())
+            Console.printLine(incomeMessages.asEnumerable())
         }
     }   
        
-    public program()
+    public Program()
     {
         var b := new B();
         b.foo();
@@ -163,7 +163,7 @@ We will declare an extension method **compose** to combine two functions. We wil
             = f(g(self));
     }
      
-    public program()
+    public Program()
     {
        var fs := new object[]{ 
           mssgconst sin<mathOp>[1], 
@@ -174,7 +174,7 @@ We will declare an extension method **compose** to combine two functions. We wil
           mssgconst arccos<mathOp>[1] };
      
        fs.zipBy(gs, (f,g => 0.5r.compose(f,g)))
-         .forEach:printingLn
+         .forEach:PrintingLn
     }
 
 In ELENA messages can be loaded, invoked and transferred with an ease, making them a truly first-class citizen. 

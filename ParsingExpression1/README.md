@@ -36,12 +36,12 @@ Now let's create a program:
 
     import extensions;
     
-    public program()
+    public Program()
     {
         auto engine := new extensions'scripting'ScriptEngine();
         auto s := engine.loadPathAsText("grammar1.es");
         
-        console.printLine(s);
+        Console.printLine(s);
     }
 
 The output will be
@@ -135,7 +135,7 @@ It is much better, now we could build a expression tree and evaluate it. We will
         ^ node          
     }
     
-    public program()
+    public Program()
     {
         auto engine := new extensions'scripting'ScriptEngine();
         
@@ -143,7 +143,7 @@ It is much better, now we could build a expression tree and evaluate it. We will
         
         Node root := buildTree(new TokenEnumerator(s, new ExpressionStatemachine()));
         
-        console.printLine(s,"=",root.eval());
+        Console.printLine(s,"=",root.eval());
     }
  
 The result is:

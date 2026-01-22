@@ -28,20 +28,20 @@ invokeFoo(target)
    target.foo()
 }
 
-program1()
+Program1()
 {
   Console.print("program1:");
   invokeFoo(new A()) 
 }
 
-program2()
+Program2()
 {
   Console.print("program2:");
   auto m := mssgconst foo[1];
   m(new A());
 }
 
-program3()
+Program3()
 {
   Console.print("program3:");
   auto m := mssg foo;
@@ -61,7 +61,7 @@ program3()
 //  m(inlinearg m_args);
 //}
   
-program5()
+Program5()
 {
    Console.print("program5:");
    var messageNameStr := Console.write("Enter the message name:").readLine();
@@ -86,7 +86,7 @@ B
    }
 }   
   
-program6()
+Program6()
 {
    Console.print("program6:");
    var b := new B();
@@ -97,12 +97,12 @@ program6()
 }   
       
       
-public program()
+public Program()
 {
-    program1();
-    program2();
-    program3();
+    Program1();
+    Program2();
+    Program3();
 //    program4(new object[]{3,"string"});
-    program5();
-    program6();
+    Program5();
+    Program6();
 }

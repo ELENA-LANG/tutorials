@@ -4,7 +4,7 @@ Sometimes it is required to make some preparation before the library can be used
 
     preloaded startUp = true.then(
     {
-        console.writeLine("foo")
+        Console.writeLine("foo")
     });
 
 In this code we declare a preloaded symbol named startUp. It executes the anonymous function. **then[1]** is an extension method which executes the given function. The extension target is not important, so we use a boolean literal.
@@ -15,11 +15,11 @@ Let's check how our code works. We will declare a singleton with a method and ex
     {
         doSomething()
         {
-            console.writeLine("bar")
+            Console.writeLine("bar")
         }
     }
     
-    public program()
+    public Program()
     {
         MyClass1.doSomething()
     }

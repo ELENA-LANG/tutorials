@@ -14,7 +14,7 @@ class MyDTO
     }
 }
                                                         
-public program()
+public Program()
 {
     var object := new MyDTO{ this X := "string"; this Y := 2; };
   

@@ -47,15 +47,15 @@ And finally let's parse the command and evaluate it:
 
     var r := new Person();
     
-    doUntil(string line, line == "", line := console.write(">").readLine())
+    doUntil(string line, line == "", line := Console.write(">").readLine())
     {
         var words := line.split();
         var f := verbs[words[0]];
         (words.Length) =>
-            2 {
-                console.printLine(f(r, words[1]));
+            2 : {
+                Console.printLine(f(r, words[1]));
             }
-            3 {
+            3 : {
                 f(r, words[1], words[2]);
             };
     }
@@ -102,10 +102,10 @@ Our main function should be modified accordingly
         var f := verbs[words[0]];
         // evaluating it
         (words.Length) =>
-            2 {
+            2 : {
                 console.printLine(f(r, words[1]).eval());
             }
-            3 {
+            3 : {
                 f(r, words[1], words[2]).eval();
             };
 
@@ -195,10 +195,10 @@ So our modified code looks like this:
         var words := line.split();
         var f := nodes2[words[0]].compiled();
         (words.Length) =>
-            2 {
-                console.printLine(f(r, words[1]));
+            2 : {
+                Console.printLine(f(r, words[1]));
             }
-            3 {
+            3 : {
                 f(r, words[1], words[2]);
             };
 
@@ -242,10 +242,10 @@ The operation can be invoked similar to our first solution - using MessageName. 
     auto prop := new MessageName(words[0]);
     
     (words.Length) =>
-        2 {            
-            console.printLine(prop(class, r, words[1]))
+        2 : {            
+            Console.printLine(prop(class, r, words[1]))
         }
-        3 {
+        3 : {
             prop(class, r, words[1], words[2])
         };
         

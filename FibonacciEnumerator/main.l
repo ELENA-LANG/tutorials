@@ -26,14 +26,15 @@ singleton FibonacciEnumerable : Enumerable
 }
 
 
-public program()
+public Program()
 {
+    int len := Console.write("Enter the length of fibonacci series:").readLine().toInt();
     auto e := FibonacciEnumerable.enumerator();
     
     if(!e.next())
        InvalidOperationException.raise();
     
-    for(int i := 0; i < 10 && e.next(); i += 1) {
+    for(int i := 0; i < len && e.next(); i += 1) {
         Console.printLine(*e)
     };
     

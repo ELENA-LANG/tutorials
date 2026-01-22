@@ -34,16 +34,16 @@ public class Node
       else
       {
          Text =>
-            "+" { ^ Left.eval() + Right.eval() }
-            "-" { ^ Left.eval() - Right.eval() }
-            "*" { ^ Left.eval() * Right.eval() }
-            "/" { ^ Left.eval() / Right.eval() }
-            ! { ^ Text.toReal() }
+            "+" : { ^ Left.eval() + Right.eval() }
+            "-" : { ^ Left.eval() - Right.eval() }
+            "*" : { ^ Left.eval() * Right.eval() }
+            "/" : { ^ Left.eval() / Right.eval() }
+            ! : { ^ Text.toReal() }
       }        
    }
 }
 
-public program()
+public Program()
 {
    auto engine := new extensions'scripting'ScriptEngine();
    engine.loadPath("grammar2.es");

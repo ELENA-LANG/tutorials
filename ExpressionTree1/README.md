@@ -11,11 +11,11 @@ it directly in the code.
     {
         doSomething()
         {
-            console.writeLine("did something")
+            Console.writeLine("did something")
         }
     }
 
-    public program()
+    public Program()
     {
         var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
         
@@ -46,13 +46,13 @@ Does this mean that we should always use only VM client? No, we could preload al
     {
         doSomething()
         {
-            console.writeLine("did something")
+            Console.writeLine("did something")
         }
     }
     
     symbol used : preloaded = new object[] {MyDynamicallyLoadedClass};
     
-    public program()
+    public Program()
     {
         var loadedClass := new Symbol("mytest'MyDynamicallyLoadedClass");
         
@@ -69,13 +69,13 @@ Similar, messages should be preloaded if we use stand-alone application.
     {
         doSomething()
         {
-            console.writeLine("did something")
+            Console.writeLine("did something")
         }
     }
     
     symbol used : preloaded = new object[] {MyDynamicallyLoadedClass, mssg doSomething};
     
-    public program()
+    public Program()
     {
         var loadedClass := new Symbol("mytest'MyDynamicallyLoadedClass");
         var loadedMessage := new Message("doSomething[1]");
@@ -107,7 +107,7 @@ ELENA does not support run-time compilation, but it is possible to create a spec
 as some kind of program.
 
     // <..>
-    public program()
+    public Program()
     {
         var loadedClass := new Symbol("exprtree1'MyDynamicallyLoadedClass");
         var loadedMessage := new Message("doSomething[1]");
@@ -146,7 +146,7 @@ Creating expression tree
 We could simplify our code if we use Expression class. Expression will automatically generate and evaluate an appropriate tape.
 
     // <..>
-    public program()
+    public Program()
     {
         var loadedMessage := new Message("doSomething[1]");
         

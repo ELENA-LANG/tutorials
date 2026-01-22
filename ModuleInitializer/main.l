@@ -13,7 +13,7 @@ startUp : preloaded = true.then(
     Console.writeLine("foo")
 });
 
-public program()
+public Program()
 {
     MyClass1.doSomething()
 }

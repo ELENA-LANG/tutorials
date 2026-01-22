@@ -15,10 +15,13 @@ be independent from each other.
 
 Let's do it. The method should start with **yield** attribute:
 
-    public singleton FibonacciGenerator
+    public singleton FibonacciGenerator : Enumerable
     {
+        Enumerator enumerator()
+           = FibonacciEnumerable.infinitEnumerator();
+
         // declaring an iterator method
-        yield Enumerator enumerator()
+        yield Enumerator infinitEnumerator()
         {
         }
     }  
@@ -26,23 +29,23 @@ Let's do it. The method should start with **yield** attribute:
 Yield return statement should start with **yield** attribute. Of course there can be several yield
 return statement:
 
-    yield Enumerator enumerator()
+    yield Enumerator infinitEnumerator()
     {
-       long n_2 := 1l; 
-       long n_1 := 1l;
-       
-       $yield n_2;             
-       $yield n_1;
-       
-       while(true)
-       {
-          long n := n_2 + n_1;
-          
-          $yield n;
-          
-          n_2 := n_1;
-          n_1 := n
-       }
+        long n_2 := 1l; 
+        long n_1 := 1l;
+
+        :yield n_2;             
+        :yield n_1;
+
+        while(true)
+        {
+            long n := n_2 + n_1;
+
+            :yield n;
+
+            n_2 := n_1;
+            n_1 := n
+        }
     }
 
 
@@ -55,18 +58,19 @@ variables the overhead can be minimized.
 Now let's use our generator:
 
 
-    public program()
+    public Program()
     {
-       auto e := FibonacciGenerator.enumerator();
+        int len := Console.write("Enter the length of fibonacci series:").readLine().toInt();
+        auto e := FibonacciEnumerable.enumerator();
         
-       int n := console.print("Enter the length of fibonacci series:").readLine().toInt();
-       for(int i := 0; i < n; i++) {
-          e.next();
-          
-          console.printLine(*e)
-       };
+        if(!e.next())
+           InvalidOperationException.raise();
         
-       console.readChar()
+        for(int i := 0; i < len && e.next(); i += 1) {
+            Console.printLine(*e)
+        };
+        
+        Console.readChar()
     }
 
 The output will be:
@@ -84,4 +88,3 @@ The output will be:
     55
 
 As you see yieldable methods can be easily declared and used in ELENA.
-

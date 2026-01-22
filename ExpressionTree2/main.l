@@ -140,10 +140,10 @@ closureSolution(select) = (r,words)
 {
     var f := select(words[0]);
     (words.Length) =>
-        2 {
+        2 : {
             Console.printLine(f(r, words[1]));
         }
-        3 {
+        3 : {
             f(r, words[1], words[2]);
         };        
 };
@@ -153,10 +153,10 @@ classSolution(class) = (r,words)
     auto prop := new MessageName(words[0]);
     
     (words.Length) =>
-        2 {            
+        2 : {            
             Console.printLine(prop(class, r, words[1]))
         }
-        3 {
+        3 : {
             var c := class;
             
             prop(class, r, words[1], words[2])
@@ -168,19 +168,19 @@ public program()
     var proceed := nil;
     
     Solution =>
-        1 {
+        1 : {
             proceed := closureSolution((word => verbs[word]))
         }
-        2 {
+        2 : {
             proceed := closureSolution((word => nodes[word]))
         }
-        3 {
+        3 : {
             proceed := closureSolution((word => nodes2[word].compile(new RootExpressionScope())))
         }
-        4 {
+        4 : {
             proceed := classSolution(classTree)
         }
-        5 {
+        5 : {
             proceed := classSolution(classTreeFromScript)            
         };
     

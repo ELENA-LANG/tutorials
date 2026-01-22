@@ -23,12 +23,12 @@ We will start with declaring a structure containing an octal number. We will hav
     
         constructor(int n)
         {
-                value := n
+            value := n
         }
     
         internal constructor sum(OctalNumber o1, OctalNumber o2)
         {
-            v    int n1 := o1;
+            int n1 := o1;
             int n2 := o2;
     
             value := n1 + n2
@@ -47,7 +47,7 @@ We will start with declaring a structure containing an octal number. We will hav
             int n1 := o1;
             int n2 := o2;
         
-                value := n1 * n2
+            value := n1 * n2
         }
     
         internal constructor frac(OctalNumber o1, OctalNumber o2)
@@ -59,7 +59,7 @@ We will start with declaring a structure containing an octal number. We will hav
         }
         
         string toPrintable()
-            = stringConvertor.convert(value, 8);
+            = StringConvertor.convert(value, 8);
     
         OctalNumber add(OctalNumber n)
             = OctalNumber.sum(self, n);
@@ -78,20 +78,20 @@ Now we have to declare a special conversion routine to box our octal literal:
 
     cast o(string s)
     {
-        value := intConvertor.convert(s, 8)
+        value := IntConvertor.convert(s, 8)
     }
 
 And we will use this literal like this:
 
 
-    public program()
+    public Program()
     {
         n := 24o;
         m := 7o;
-        console.printLine(n,"+",m,"=",n + m);
-        console.printLine(n,"-",m,"=",n - m);
-        console.printLine(n,"*",m,"=",n * m);
-        console.printLine(n,"/",m,"=",n / m)
+        Console.printLine(n,"+",m,"=",n + m);
+        Console.printLine(n,"-",m,"=",n - m);
+        Console.printLine(n,"*",m,"=",n * m);
+        Console.printLine(n,"/",m,"=",n / m)
     }
 
 The output will be:
