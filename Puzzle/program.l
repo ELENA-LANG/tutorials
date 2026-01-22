@@ -334,7 +334,7 @@ Puzzle = Solver.new(
     (trees,id => apply(id, trees,5,Purple,4,Blue))    
 );
 
-public program()
+public Program()
 {
     var puzzle := Puzzle;
 

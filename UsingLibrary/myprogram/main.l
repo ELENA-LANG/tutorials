@@ -1,6 +1,6 @@
 import mylib;
 
-public program()
+public Program()
 {
     auto c := new MyClass();
     

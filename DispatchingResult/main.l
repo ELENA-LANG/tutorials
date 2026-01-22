@@ -22,7 +22,7 @@ A
    Value = new Variant(x);
 }
 
-public program()
+public Program()
 {
    A a := 2;
    var o := a;
@@ -32,4 +32,4 @@ public program()
 
    int n2 := o.Value;
    string s2 := o.Value;
-   }
+}

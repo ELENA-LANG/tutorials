@@ -25,7 +25,7 @@ In the following code we dispatch the property Value by providing the expected r
         }
     }
     
-    public program()
+    public Program()
     {
         auto a := new A();
         
@@ -33,8 +33,8 @@ In the following code we dispatch the property Value by providing the expected r
         int n := a.Value; 
         long l := a.Value;
         
-        console.printLine("int Value() = ", n);
-        console.printLine("long Value() = ", l);
+        Console.printLine("int Value() = ", n);
+        Console.printLine("long Value() = ", l);
     }
 
 The output is
@@ -51,13 +51,13 @@ We may use it for heap allocated objects as well. In this case we have to provid
         string Value
             = "s";
     
-        get multiret wide Value()
+        get retoverload wide Value()
         {
             r := "w"w
         }
     }
     
-    public program()
+    public Program()
     {
         auto a := new A();
         
@@ -65,8 +65,8 @@ We may use it for heap allocated objects as well. In this case we have to provid
         string s := a.Value; 
         wide w := a.Value;
 
-        console.printLine("string Value() = ", s);
-        console.printLine("wide Value() = ", w);         
+        Console.printLine("string Value() = ", s);
+        Console.printLine("wide Value() = ", w);         
     }
 
 The result is:

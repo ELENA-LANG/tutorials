@@ -75,12 +75,12 @@ singleton C
    }    
 }
 
-public program()
+public Program()
 {
    var a := new A();
    var b := new B();
-   var decA := new Decorator(a) :as IA;
-   var decB := new Decorator(b) :as IB;
+   var decA := new Decorator(a) as: IA;
+   var decB := new Decorator(b) as: IB;
 
    C.proceed(a);
    C.proceed(b);

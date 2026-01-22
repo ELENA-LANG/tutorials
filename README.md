@@ -30,3 +30,4 @@ Tutorial | Description | Level
 [ParsingExpression1](https://github.com/ELENA-LANG/tutorials/tree/master/ParsingExpression1) | Using ELENA Script Engine to parse an arithmetic expression, Part 1 | Advanced
 [ParsingExpression2](https://github.com/ELENA-LANG/tutorials/tree/master/ParsingExpression2) | Using ELENA Script Engine to parse an arithmetic expression, Part 2 | Advanced
 [Embedded ELENAVM](https://github.com/ELENA-LANG/tutorials/blob/master/Embedded/README.md) | Using ELENA VM inside another programming language | Advanced
+[DispatchingResult](https://github.com/ELENA-LANG/tutorials/tree/master/DispatchingResult/README.md) | Multi-dispatching a method result | Advanced
