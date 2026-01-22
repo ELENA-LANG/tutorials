@@ -160,7 +160,7 @@ Solver
     {
         for (int i := 0; i < solutions.Length; i++)
         {
-            ifnot(solutions[i].solve())
+            if:not(solutions[i].solve())
             {
                 solutions[i] := nil
             }
@@ -236,7 +236,7 @@ select2(id, trees,cond,action)
 
 apply(cond,trees,count1,color1,count2,color2)
 {
-    List variants := nil;
+    List? variants := nil;
     for(int i := 0; i < 3; i++)
     {
         bool matched := false;
@@ -258,7 +258,7 @@ apply(cond,trees,count1,color1,count2,color2)
             if (variants == nil)
             {
                 variants := new List();
-                variants.append(trees);
+                variants!.append(trees);
             }
             else
             {
